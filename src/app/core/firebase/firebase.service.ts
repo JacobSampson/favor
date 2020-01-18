@@ -177,6 +177,7 @@ export class FirebaseService {
   public addIsoRequest(isoRequest: IsoRequest) {
     // Set date added and date updated
     isoRequest.postedDate = new Date();
+    isoRequest.userPosted = this.user;
 
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
   }
