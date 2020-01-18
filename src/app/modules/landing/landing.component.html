@@ -1,1 +1,23 @@
 <p>landing works!</p>
+
+<div *ngIf="fb.user$ | async; then authenticated; else guest">
+    <!-- template will replace this div -->
+</div>
+
+<ng-template #guest>
+    <button (click)="fb.googleSignin()">
+        Login / Create Account
+    </button>
+</ng-template>
+
+<ng-template #authenticated>
+    <div *ngIf="fb.user$ | async as user">
+        <p>Authenticated!</p>
+        <p>Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>School: {{ user.school }}</p>
+        <button (click)="fb.signOut()">
+            Logout
+        </button>
+    </div>
+</ng-template>
