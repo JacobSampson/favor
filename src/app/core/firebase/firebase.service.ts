@@ -75,21 +75,21 @@ export class FirebaseService {
   // ISO - Request
 
   // Get all unfulfilled ISO requests
-  public getUnfilledISORequests() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+  public getUnfulilledISORequests() {
+    const requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
-        let docs = data.docs;
-        let requests = Array<IsoRequest>();
+        const docs = data.docs;
+        const requests = Array<IsoRequest>();
 
         docs.forEach(doc => {
-          let request = doc.data() as IsoRequest;
+          const request = doc.data() as IsoRequest;
           request.id = doc.id;
           if (!request.fullfilled && !request.userFulfilling) {
             requests.push(request);
           }
         });
-        
+
         resolve(requests);
       });
     });
@@ -97,20 +97,20 @@ export class FirebaseService {
 
   // Get all unfulfilled ISO requests by posting User
   public getUnfulfilledISORequestsByPostingUser() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    const requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
-        let docs = data.docs;
-        let requests = Array<IsoRequest>();
+        const docs = data.docs;
+        const requests = Array<IsoRequest>();
 
         docs.forEach(doc => {
-          let request = doc.data() as IsoRequest;
+          const request = doc.data() as IsoRequest;
           request.id = doc.id;
           if (!request.fullfilled && !request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
           }
         });
-        
+
         resolve(requests);
       });
     });
@@ -118,20 +118,20 @@ export class FirebaseService {
 
   // Get all fulfilling ISO requests by fulfilling User
   public getFulfilledISORequestsByFulfillingUser() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    const requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
-        let docs = data.docs;
-        let requests = Array<IsoRequest>();
+        const docs = data.docs;
+        const requests = Array<IsoRequest>();
 
         docs.forEach(doc => {
-          let request = doc.data() as IsoRequest;
+          const request = doc.data() as IsoRequest;
           request.id = doc.id;
           if (request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
             requests.push(request);
           }
         });
-        
+
         resolve(requests);
       });
     });
@@ -139,20 +139,20 @@ export class FirebaseService {
 
   // Get all fulfilling ISO requests by posting User
   public getFulfilledISORequestsByPostingUser() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    const requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
-        let docs = data.docs;
-        let requests = Array<IsoRequest>();
+        const docs = data.docs;
+        const requests = Array<IsoRequest>();
 
         docs.forEach(doc => {
-          let request = doc.data() as IsoRequest;
+          const request = doc.data() as IsoRequest;
           request.id = doc.id;
           if (request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
           }
         });
-        
+
         resolve(requests);
       });
     });

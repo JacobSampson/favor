@@ -4,13 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { CardListComponent } from './components/card-list/card-list.component';
 import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [
-    NavBarComponent,
-    CardListComponent
+    NavBarComponent
   ],
   imports: [
     CommonModule,
@@ -19,8 +17,7 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ],
   exports: [
-    NavBarComponent,
-    CardListComponent
+    NavBarComponent
   ]
 })
 export class SharedModule { }
