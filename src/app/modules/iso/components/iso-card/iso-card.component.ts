@@ -10,12 +10,15 @@ export class IsoCardComponent implements OnInit {
 
   constructor(private fb : FirebaseService) { }
 
-  title = "a couch";
-  payment = 85.50
+  to = "Avery"
+  from = "Kauffman"
+  location = "to " + this.to + (this.from ? " from " + this.from : "");
+
+  title = "I need help moving a couch.";
+  payment = 15.25;
   posted = new Date().toLocaleString();
-  description: "I am looking for a couch that can convert to a sofa bed."
+  description = "It's a really big couch and I need to move it into my dorm.";
 
   ngOnInit() {
   }
-
 }

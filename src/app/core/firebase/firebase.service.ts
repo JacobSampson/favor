@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { auth } from 'firebase';
 import { GoogleUser } from '../models/google-user';
+import IsoRequest from '../models/iso-request';
+import School from '../models/school';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +42,8 @@ export class FirebaseService {
       uid: googleUser.uid,
       name: googleUser.displayName,
       email: googleUser.email,
-    };
+      photoUrl: googleUser.photoURL
+    }
 
     return userRef.set(data, { merge: true })
   }
@@ -51,6 +54,7 @@ export class FirebaseService {
     const data: User = {
       uid: user.uid,
       name: user.name,
+      photoUrl: user.photoUrl,
       school: user.school,
       email: user.email
     };
@@ -61,5 +65,15 @@ export class FirebaseService {
   async signOut() {
     await this.afAuth.auth.signOut();
     return this.router.navigate(['/']);
+  }
+
+  // ISO - Request
+
+  // Add ISO request
+  public addIsoRequest(isoRequest: IsoRequest) {
+    // Set date added and date updated
+    isoRequest.postedDate = new Date();
+
+    return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add(isoRequest)
   }
 }
