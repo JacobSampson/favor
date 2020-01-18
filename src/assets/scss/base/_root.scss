@@ -1,0 +1,17 @@
+@import './variables';
+
+html {
+  position: absolute;
+  width: 100vw;
+}
+
+body {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+
+  overflow-x: hidden;
+  font-family: $font-family;
+}

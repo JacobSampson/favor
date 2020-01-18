@@ -1,0 +1,49 @@
+/* variables */
+
+:root {
+
+  /* pallete */
+
+  --col-primary: #FFC300;
+  --col-secondary: #ff1a1a;
+
+  --col-bkgd: #0C0C0C;
+  --col-frgd: #202020;
+
+  --col-warning: #ff1a1a;
+  --col-valid: #1fc551;
+
+  --col-text-primary: rgb(0, 0, 0);
+  --col-text-secondary: #FFFFFF;
+  --col-text-tertiary: rgba(255, 255, 255, 0.534);
+  --col-text-disabled: rgba(255, 255, 255, 0.349);
+
+  /* font */
+
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+/* pallete */
+
+$col-primary: var(--col-primary);
+$col-secondary: var(--col-secondary);
+
+$col-warning: var(--col-warning);
+$col-valid: var(--col-valid);
+
+$col-bkgd: var(--col-bkgd);
+$col-frgd: var(--col-frgd);
+
+$col-text-primary: var(--col-text-primary);
+$col-text-secondary: var(--col-text-secondary);
+$col-text-tertiary: var(--col-text-tertiary);
+$col-text-disabled: var(--col-text-disabled);
+
+/* font */
+
+$font-family: var(--font-family);
+
+/* sizing */
+
+/* styling */
