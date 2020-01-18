@@ -14,8 +14,6 @@ export class IsoCardComponent implements OnInit {
   constructor() { }
 
   // to = 'Avery'
-  // from = 'Kauffman'
-  // location = 'to ' + this.to + (this.from ? ' from ' + this.from : '');
 
   // title = 'I need help moving a couch.';
   // payment = 15.25;
@@ -26,5 +24,6 @@ export class IsoCardComponent implements OnInit {
 
 
   ngOnInit() {
+
   }
 }
