@@ -11,10 +11,7 @@ export class LandingComponent implements OnInit {
   constructor(public fb: FirebaseService) { }
 
   ngOnInit() {
-
-    this.fb.getIsoRequest('BufySuoI4UZWg36jXvcR').subscribe(result => {
-      console.log(result);
-    })
+    
   }
 
 }
