@@ -2,7 +2,10 @@
 
 .form {
   padding: 2em 0;
-  display: table;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   background-color: $col-frgd;
   color: $col-text-secondary;
 
@@ -15,7 +18,7 @@
   &__control {
     padding: 1em;
     margin: 0.5em;
-    width: 20em;
+    min-width: 20em;
 
     border: none;
     border-left: 5px solid white;
@@ -64,11 +67,5 @@
       color: $col-text-primary;
       border: 2px solid $col-bkgd;
     }
-  }
-
-  @media screen and (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }
