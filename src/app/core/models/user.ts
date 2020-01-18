@@ -5,4 +5,3 @@ export interface User {
   school: string;
   email: string;
 }
-

@@ -17,14 +17,14 @@ export class FirebaseService {
   user$: Observable<User>;
   user: User;
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) { 
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
-        } 
+        }
       })
     )
 
@@ -42,11 +42,11 @@ export class FirebaseService {
   private updateUserData(googleUser) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<GoogleUser> = this.afs.doc(`users/${googleUser.uid}`);
-    
-    const data = { 
+
+    const data = {
       uid: googleUser.uid,
       name: googleUser.displayName,
-      email: googleUser.email, 
+      email: googleUser.email,
       photoUrl: googleUser.photoURL
     }
 
@@ -62,7 +62,7 @@ export class FirebaseService {
       photoUrl: user.photoUrl,
       school: user.school,
       email: user.email
-    }
+    };
 
     return userRef.set(data, { merge: true })
   }
@@ -166,4 +166,3 @@ export class FirebaseService {
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add(isoRequest)
   }
 }
-  

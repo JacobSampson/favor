@@ -1,0 +1,96 @@
+<form action="" (ngSubmit)="onSubmit()" class="form" #form="ngForm">
+
+  <h3 class="iso-form__topic">Post ISO</h3>
+
+  <div class="form__group">
+    <label class="form__label" for="title">Title</label>
+    <input class="form__control"
+      name="title"
+      #title="ngModel"
+      [(ngModel)]="model.title"
+      required
+      placeholder=""
+      type="text">
+  </div>
+
+  <div class="form__group">
+    <label class="form__label" for="description">Description</label>
+    <textarea class="form__control form__control--description"
+      name="description"
+      #description="ngModel"
+      [(ngModel)]="model.description"
+      required
+      placeholder=""
+      type="text">
+    </textarea>
+  </div>
+
+  <div class="form__group">
+    <label class="form__label" for="fulfillmentDate">Fulfillment Date</label>
+    <input class="form__control"
+      name="fulfillmentDate"
+      #fulfillmentDate="ngModel"
+      [(ngModel)]="model.fulfillmentDate"
+      required
+      placeholder=""
+      type="date">
+  </div>
+
+  <div class="form__group">
+    <label class="form__label" for="fromLocation">From</label>
+    <input class="form__control"
+      name="fromLocation"
+      #fromLocation="ngModel"
+      [(ngModel)]="model.fromLocation"
+      required
+      placeholder=""
+      type="text">
+  </div>
+
+  <div class="form__group">
+    <label class="form__label" for="toLocation">To</label>
+    <input class="form__control"
+      name="toLocation"
+      #toLocation="ngModel"
+      [(ngModel)]="model.toLocation"
+      placeholder=""
+      type="text">
+  </div>
+
+  <div class="form__group">
+    <label class="form__label" for="paymentAmount">Payment</label>
+    <input class="form__control"
+      name="paymentAmount"
+      #paymentAmount="ngModel"
+      [(ngModel)]="model.paymentAmount"
+      required
+      placeholder=""
+      type="number">
+  </div>
+
+  <!-- <div class="form__group">
+    <input class="form__resume"
+      id="resume"
+      name="resume"
+      #location="ngModel"
+      [(ngModel)]="model.resume"
+      type="file">
+    <label class="form__label" class="form__label" for="resume">
+      <i class="fas fa-file-upload"></i>
+      Resume
+    </label>
+  </div>
+
+  <div class="form__group">
+    <select class="form__control" id="selection" required>
+      <option *ngFor="let selection of selections()" [value]="selection">{{selection}}</option>
+    </select>
+  </div> -->
+
+  <button class="form__button"
+    [disabled]="!form.form.valid"
+    type="submit">
+    Submit
+  </button>
+
+</form>
