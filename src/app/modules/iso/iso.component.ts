@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/core/firebase/firebase.service';
-import { from } from 'rxjs';
 import IsoRequest from 'src/app/core/models/iso-request';
 
 @Component({
