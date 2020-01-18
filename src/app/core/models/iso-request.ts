@@ -2,7 +2,7 @@ import { User } from './user';
 
 export default class IsoRequest {
   constructor(
-    public id: number,
+    public id: string,
     public title: string,
     public description: string,
     public paymentAmount: number,

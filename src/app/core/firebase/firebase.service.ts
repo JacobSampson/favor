@@ -15,6 +15,7 @@ import School from '../models/school';
 })
 export class FirebaseService {
   user$: Observable<User>;
+  user: User;
 
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     this.user$ = this.afAuth.authState.pipe(
@@ -25,7 +26,11 @@ export class FirebaseService {
           return of(null);
         }
       })
-    );
+    )
+
+    this.user$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   async googleSignin() {
@@ -68,6 +73,90 @@ export class FirebaseService {
   }
 
   // ISO - Request
+
+  // Get all unfulfilled ISO requests
+  public getUnfilledISORequests() {
+    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    return new Promise<IsoRequest[]>((resolve, reject) => {
+      requests.ref.get({ source: "server" }).then(data => {
+        let docs = data.docs;
+        let requests = Array<IsoRequest>();
+
+        docs.forEach(doc => {
+          let request = doc.data() as IsoRequest;
+          request.id = doc.id;
+          if (!request.fullfilled && !request.userFulfilling) {
+            requests.push(request);
+          }
+        });
+        
+        resolve(requests);
+      });
+    });
+  }
+
+  // Get all unfulfilled ISO requests by posting User
+  public getUnfulfilledISORequestsByPostingUser() {
+    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    return new Promise<IsoRequest[]>((resolve, reject) => {
+      requests.ref.get({ source: "server" }).then(data => {
+        let docs = data.docs;
+        let requests = Array<IsoRequest>();
+
+        docs.forEach(doc => {
+          let request = doc.data() as IsoRequest;
+          request.id = doc.id;
+          if (!request.fullfilled && !request.userFulfilling && request.userPosted.uid === this.user.uid) {
+            requests.push(request);
+          }
+        });
+        
+        resolve(requests);
+      });
+    });
+  }
+
+  // Get all fulfilling ISO requests by fulfilling User
+  public getFulfilledISORequestsByFulfillingUser() {
+    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    return new Promise<IsoRequest[]>((resolve, reject) => {
+      requests.ref.get({ source: "server" }).then(data => {
+        let docs = data.docs;
+        let requests = Array<IsoRequest>();
+
+        docs.forEach(doc => {
+          let request = doc.data() as IsoRequest;
+          request.id = doc.id;
+          if (request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
+            requests.push(request);
+          }
+        });
+        
+        resolve(requests);
+      });
+    });
+  }
+
+  // Get all fulfilling ISO requests by posting User
+  public getFulfilledISORequestsByPostingUser() {
+    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    return new Promise<IsoRequest[]>((resolve, reject) => {
+      requests.ref.get({ source: "server" }).then(data => {
+        let docs = data.docs;
+        let requests = Array<IsoRequest>();
+
+        docs.forEach(doc => {
+          let request = doc.data() as IsoRequest;
+          request.id = doc.id;
+          if (request.userFulfilling && request.userPosted.uid === this.user.uid) {
+            requests.push(request);
+          }
+        });
+        
+        resolve(requests);
+      });
+    });
+  }
 
   // Add ISO request
   public addIsoRequest(isoRequest: IsoRequest) {
