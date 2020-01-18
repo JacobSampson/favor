@@ -1,0 +1,13 @@
+@import '~src/assets/scss/base/variables';
+
+.iso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $col-bkgd;
+
+  &__list {
+
+  }
+}

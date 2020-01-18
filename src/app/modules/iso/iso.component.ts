@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/core/firebase/firebase.service';
 import { from } from 'rxjs';
+import IsoRequest from 'src/app/core/models/iso-request';
 
 @Component({
   selector: 'app-iso',
@@ -9,12 +10,12 @@ import { from } from 'rxjs';
 })
 export class IsoComponent implements OnInit {
 
-  cards = this.fb.getUnfulilledISORequests();
+  public cards: Promise<IsoRequest[]> = this.fb.getUnfulilledIsoRequests();
 
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() {
-    this.cards.then(console.log);
+    // this.cards.then(console.log);
   }
 
 }

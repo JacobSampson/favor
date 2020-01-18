@@ -9,7 +9,7 @@ import IsoRequest from 'src/app/core/models/iso-request';
 })
 export class IsoCardComponent implements OnInit {
 
-  @Input() model: IsoRequest;
+  @Input() card: IsoRequest;
 
   constructor() { }
 
@@ -22,14 +22,7 @@ export class IsoCardComponent implements OnInit {
   // posted = new Date().toLocaleString();
   // description = 'It\'s a really big couch and I need to move it into my dorm.';
 
-  to = this.model.toLocation;
-  from = this.model.fromLocation;
-  location = 'to ' + this.model.toLocation + (this.model.fromLocation ? ' from ' + this.model.fromLocation : '');
-
-  title = this.model.title;
-  payment = this.model.paymentAmount;
-  posted = this.model.postedDate;
-  description = this.model.description;
+  // location = 'to ' + this.model.toLocation + (this.model.fromLocation ? ' from ' + this.model.fromLocation : '');
 
 
   ngOnInit() {

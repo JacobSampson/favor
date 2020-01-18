@@ -75,7 +75,7 @@ export class FirebaseService {
   // ISO - Request
 
   // Get all unfulfilled ISO requests
-  public getUnfulilledISORequests() {
+  public getUnfulilledIsoRequests() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
@@ -96,7 +96,7 @@ export class FirebaseService {
   }
 
   // Get all unfulfilled ISO requests by posting User
-  public getUnfulfilledISORequestsByPostingUser() {
+  public getUnfulfilledIsoRequestsByPostingUser() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
@@ -117,7 +117,7 @@ export class FirebaseService {
   }
 
   // Get all fulfilling ISO requests by fulfilling User
-  public getFulfilledISORequestsByFulfillingUser() {
+  public getFulfilledIsoRequestsByFulfillingUser() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
@@ -138,7 +138,7 @@ export class FirebaseService {
   }
 
   // Get all fulfilling ISO requests by posting User
-  public getFulfilledISORequestsByPostingUser() {
+  public getFulfilledIsoRequestsByPostingUser() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
@@ -169,8 +169,8 @@ export class FirebaseService {
   }
 
   // Deconste ISO Request
-  public deconsteRubric(isoRequest: IsoRequest) {
-    return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).deconste();
+  public deleteIsoRubric(isoRequest: IsoRequest) {
+    return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).delete();
   }
 
   // Add ISO request
