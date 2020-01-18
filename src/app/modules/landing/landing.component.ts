@@ -11,6 +11,7 @@ export class LandingComponent implements OnInit {
   constructor(public fb: FirebaseService) { }
 
   ngOnInit() {
+    
   }
 
 }
