@@ -163,6 +163,6 @@ export class FirebaseService {
     // Set date added and date updated
     isoRequest.postedDate = new Date();
 
-    return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add(isoRequest)
+    return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
   }
 }
