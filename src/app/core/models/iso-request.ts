@@ -1,7 +1,7 @@
 import { User } from './user';
 
 export default class IsoRequest {
-  id: number;
+  id: string;
   title: string;
   description: string;
   payment: number;
@@ -11,4 +11,5 @@ export default class IsoRequest {
   from: string;
   userPosted: User;
   fullfilled: Boolean;
+  userFulfilling?: User;
 }
