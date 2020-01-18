@@ -76,7 +76,7 @@ export class FirebaseService {
 
   // Get all unfulfilled ISO requests
   public getUnfilledISORequests() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    let requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
         let docs = data.docs;
@@ -97,7 +97,7 @@ export class FirebaseService {
 
   // Get all unfulfilled ISO requests by posting User
   public getUnfulfilledISORequestsByPostingUser() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    let requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
         let docs = data.docs;
@@ -118,7 +118,7 @@ export class FirebaseService {
 
   // Get all fulfilling ISO requests by fulfilling User
   public getFulfilledISORequestsByFulfillingUser() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    let requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
         let docs = data.docs;
@@ -139,7 +139,7 @@ export class FirebaseService {
 
   // Get all fulfilling ISO requests by posting User
   public getFulfilledISORequestsByPostingUser() {
-    let requests = this.afs.doc<School>('schools/OZX5hT70yyHsSh00Z5M6').collection('iso-requests');
+    let requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
         let docs = data.docs;
@@ -158,11 +158,48 @@ export class FirebaseService {
     });
   }
 
+  // Get ISO request
+  public getIsoRequest(id: string) {
+    return this.afs.doc<School>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${id}`).valueChanges();
+  }
+
+  // Update ISO request
+  public updateIsoRequest(isoRequest: IsoRequest) {
+    return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).update({...isoRequest});
+  }
+
+  // Delete ISO Request
+  public deleteRubric(isoRequest: IsoRequest) {
+    return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).delete();
+  }
+
   // Add ISO request
   public addIsoRequest(isoRequest: IsoRequest) {
     // Set date added and date updated
     isoRequest.postedDate = new Date();
 
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
+  }
+
+  // School 
+
+  // Get all schools
+  public getAllSchools(): Promise<School[]> {
+    let schools = this.afs.collection<School>('schools');
+
+    return new Promise<School[]>((resolve, reject) => {
+      schools.ref.get({ source:"server" }).then (data => {
+        let docs = data.docs;
+        let schools = Array<School>();
+
+        docs.forEach(doc => {
+          let school = doc.data() as School
+          school.id = doc.id
+          schools.push(school)
+        })
+
+        resolve(schools);
+      });
+    });
   }
 }
