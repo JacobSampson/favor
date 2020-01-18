@@ -16,6 +16,7 @@
         <p>Name: {{ user.name }}</p>
         <p>Email: {{ user.email }}</p>
         <p>School: {{ user.school }}</p>
+        <img  [src]="user.photoUrl">
         <button (click)="fb.signOut()">
             Logout
         </button>
