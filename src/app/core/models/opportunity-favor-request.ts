@@ -1,6 +1,6 @@
 export default class OpportunityFavorRequest {
   constructor(
-    description: string,
-    payment: number
+    public description: string,
+    public paymentAmount: number
   ) {}
 }
