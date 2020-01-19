@@ -44,8 +44,6 @@ export class FirebaseService {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<GoogleUser> = this.afs.doc(`users/${googleUser.uid}`);
 
-    console.log(googleUser)
-
     const data = {
       uid: googleUser.uid,
       name: googleUser.displayName,
