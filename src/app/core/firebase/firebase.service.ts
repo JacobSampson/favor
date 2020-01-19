@@ -8,6 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { auth } from 'firebase';
 import { GoogleUser } from '../models/google-user';
 import IsoRequest from '../models/iso-request';
+import Opportunity from '../models/opportunity';
 import School from '../models/school';
 
 @Injectable({
@@ -184,18 +185,48 @@ export class FirebaseService {
     return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).update({...isoRequest});
   }
 
-  // Deconste ISO Request
+  // Delete ISO Request
   public deleteIsoRubric(isoRequest: IsoRequest) {
     return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).delete();
   }
 
-  // Add ISO request
+  // Add ISO Request
   public addIsoRequest(isoRequest: IsoRequest) {
     // Set date added and date updated
     isoRequest.postedDate = new Date();
     isoRequest.userPosted = this.user;
 
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
+  }
+
+  // Opportunity
+
+  // Get Opportunities
+  public getOpportunities() {
+    const opportunities = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities');
+    return new Promise<Opportunity[]>((resolve, reject) => {
+      opportunities.ref.get({ source: "server" }).then(data => {
+        const docs = data.docs;
+        const requests = Array<Opportunity>();
+
+        docs.forEach(doc => {
+          const opportunity = doc.data() as Opportunity;
+          opportunity.id = doc.id;
+          requests.push(opportunity);
+        });
+
+        resolve(requests);
+      });
+    });
+  }
+
+  // Add Opportunity
+  public addOpportunity(opportunity: Opportunity) {
+    // Set date added and date updated
+    opportunity.postedDate = new Date();
+    opportunity.userPosted = this.user;
+
+    return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities').add({...opportunity})
   }
 
   // School

@@ -1,0 +1,77 @@
+<form action="" (ngSubmit)="onSubmit()" class="form" #form="ngForm">
+
+    <h3 class="iso-form__topic">Create Opportunity</h3>
+  
+    <div class="form__group">
+      <label class="form__label" for="title">Title</label>
+      <input class="form__control"
+        name="title"
+        #title="ngModel"
+        [(ngModel)]="model.title"
+        required
+        placeholder=""
+        type="text">
+    </div>
+  
+    <div class="form__group">
+      <label class="form__label" for="description">Description</label>
+      <textarea class="form__control form__control--description"
+        name="description"
+        #description="ngModel"
+        [(ngModel)]="model.description"
+        required
+        placeholder=""
+        type="text">
+      </textarea>
+    </div>
+  
+    <div class="form__group">
+      <label class="form__label" for="startDate">Start Date</label>
+      <input class="form__control"
+        name="startDate"
+        #startDate="ngModel"
+        [(ngModel)]="model.startDate"
+        required
+        placeholder=""
+        type="date">
+    </div>
+
+    <div class="form__group">
+        <label class="form__label" for="endDate">End Date</label>
+        <input class="form__control"
+          name="endDate"
+          #endDate="ngModel"
+          [(ngModel)]="model.endDate"
+          required
+          placeholder=""
+          type="date">
+      </div>
+  
+    <div class="form__group">
+      <label class="form__label" for="toLocation">To</label>
+      <input class="form__control"
+        name="toLocation"
+        #toLocation="ngModel"
+        [(ngModel)]="model.toLocation"
+        required
+        placeholder=""
+        type="text">
+    </div>
+  
+    <div class="form__group">
+      <label class="form__label" for="fromLocation">From</label>
+      <input class="form__control"
+        name="fromLocation"
+        #fromLocation="ngModel"
+        [(ngModel)]="model.fromLocation"
+        placeholder=""
+        type="text">
+    </div>
+
+    <button class="form__button"
+      [disabled]="!form.form.valid"
+      type="submit">
+      Submit
+    </button>
+  
+</form>
