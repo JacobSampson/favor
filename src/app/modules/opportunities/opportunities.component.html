@@ -9,7 +9,7 @@
         <app-opportunity-form></app-opportunity-form>
         </mat-expansion-panel>
     </mat-accordion>
-    <mat-list>
+    <mat-list class="opportunity__list">
         <app-opportunity-card *ngFor="let card of cards | async" [card]="card"></app-opportunity-card>
     </mat-list>
 </section>

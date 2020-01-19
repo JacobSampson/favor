@@ -3,11 +3,14 @@
         <div mat-card-avatar class="opportunity-card__image"
             [ngStyle]="{backgroundImage: 'url(' + card.userPosted?.photoUrl + ')'}">
         </div>
-        <mat-card-title> {{card.title}} &nbsp;&nbsp; </mat-card-title>
-        <mat-card-subtitle> {{card.postedDate}} </mat-card-subtitle>
-        <mat-card-subtitle> {{card.fromLocation}} </mat-card-subtitle>
+        <mat-card-title>{{card.title}}</mat-card-title>
+        <mat-card-subtitle> Posted on: {{card.postedDate}} </mat-card-subtitle>
+        <mat-card-subtitle> Active from: {{card.startDate + " - " + card.endDate}} </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <p> {{card.description}} </p>
+    </mat-card-content>
+    <mat-card-content class="opportunity-card__locations">
+        <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
     </mat-card-content>
 </mat-card>
