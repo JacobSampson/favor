@@ -16,6 +16,7 @@
     </mat-card-header>
     <mat-card-content class="iso-card__description">
       <mat-card-subtitle> Fulfill by {{card.fulfillmentDate.toLocaleDateString()}} - {{card.fulfillmentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
+      <mat-card-subtitle> {{card.userFulfilling?.name}} </mat-card-subtitle>
       <p>{{card.description}}</p>
     </mat-card-content>
     <mat-card-content class="iso-card__locations">
