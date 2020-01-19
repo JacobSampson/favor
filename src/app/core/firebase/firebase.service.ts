@@ -89,6 +89,7 @@ export class FirebaseService {
 
           // Manually convert time stamps to date
           request.postedDate = doc.data().postedDate.toDate()
+          request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
           if (!request.fullfilled && !request.userFulfilling) {
             requests.push(request);
@@ -114,6 +115,7 @@ export class FirebaseService {
 
           // Manually convert time stamps to date
           request.postedDate = doc.data().postedDate.toDate()
+          request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
           if (!request.fullfilled && !request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
@@ -139,6 +141,7 @@ export class FirebaseService {
 
           // Manually convert time stamps to date
           request.postedDate = doc.data().postedDate.toDate()
+          request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
           if (request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
             requests.push(request);
@@ -164,6 +167,7 @@ export class FirebaseService {
 
           // Manually convert time stamps to date
           request.postedDate = doc.data().postedDate.toDate()
+          request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
           
           if (request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
