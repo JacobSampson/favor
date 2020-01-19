@@ -1,5 +1,6 @@
 import { User } from './user';
 import IsoRequest from './iso-request';
+import OpportunityFavorRequest from './opportunity-favor-request';
 
 export default class Opportunity {
   constructor(
@@ -12,6 +13,6 @@ export default class Opportunity {
     public toLocation: string,
     public fromLocation: string,
     public userPosted: User,
-    public requests: IsoRequest[]
+    public requests: OpportunityFavorRequest[]
   ) {}
 }

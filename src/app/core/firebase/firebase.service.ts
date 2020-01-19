@@ -10,6 +10,7 @@ import { GoogleUser } from '../models/google-user';
 import IsoRequest from '../models/iso-request';
 import Opportunity from '../models/opportunity';
 import School from '../models/school';
+import OpportunityFavorRequest from '../models/opportunity-favor-request';
 
 @Injectable({
   providedIn: 'root'
@@ -282,17 +283,17 @@ export class FirebaseService {
 
     window.location.reload(false);
 
-    return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities').add({...opportunity})
+    return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities').add({...opportunity});
   }
 
   // Request Favor
-  public requestFavor(opportunity: Opportunity, favor: IsoRequest) {
+  public requestFavor(opportunity: Opportunity, favor: OpportunityFavorRequest) {
     opportunity.requests = opportunity.requests || [];
-    opportunity.requests.push(favor);
+    opportunity.requests = [...opportunity.requests];
 
     window.location.reload(false);
 
-    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${opportunity.id}`).update({...opportunity});
+    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/opportunities/${opportunity.id}`).update({...opportunity});
   }
 
   // School

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import IsoRequest from 'src/app/core/models/iso-request';
+import OpportunityFavorRequest from 'src/app/core/models/opportunity-favor-request';
 
 @Component({
   selector: 'app-favor-requests',
@@ -8,11 +9,12 @@ import IsoRequest from 'src/app/core/models/iso-request';
 })
 export class FavorRequestsComponent implements OnInit {
 
-  @Input() request: IsoRequest;
+  @Input() request: OpportunityFavorRequest;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.request)
   }
 
 }
