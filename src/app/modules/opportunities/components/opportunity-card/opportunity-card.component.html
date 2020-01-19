@@ -24,7 +24,7 @@
             View &nbsp; <b>favor</b> &nbsp; requests
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <app-favor-requests *ngFor="let request of card.requests" request="request"></app-favor-requests>
+        <app-favor-requests *ngFor="let request of card.requests" [request]="request"></app-favor-requests>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-footer>

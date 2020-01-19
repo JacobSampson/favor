@@ -4,16 +4,17 @@
         [ngStyle]="{backgroundImage: 'url(' + card.userPosted?.photoUrl + ')'}">
       </div>
       <mat-card-title>{{card.title}}</mat-card-title>
-      <div *ngIf="fb.user.uid == card.userFulfilling?.uid">
-        <mat-card-subtitle> Poster Contact Info: {{ card.userPosted.email }} {{ card.userPosted.phoneNumber }}</mat-card-subtitle>
-      </div>
+
       <mat-card-subtitle class="iso-card__posted"> Posted <i>{{card.postedDate.toLocaleDateString()}} - {{card.postedDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}}</i> </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="iso-card__description">
       <mat-card-subtitle> Fulfill by {{card.fulfillmentDate.toLocaleDateString()}} - {{card.fulfillmentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
       <mat-card-subtitle> {{card.userFulfilling?.name}} </mat-card-subtitle>
-      <div *ngIf="fb.user.uid == card.userPosted.uid">
+      <div *ngIf="fb.user.uid == card.userPosted.uid" >
         <mat-card-subtitle> {{ card.userFulfilling?.email }} {{ card.userFulfilling?.phoneNumber }} </mat-card-subtitle>
+      </div>
+      <div *ngIf="fb.user.uid == card.userFulfilling?.uid">
+        <mat-card-subtitle> {{ card.userPosted.email }} {{ card.userPosted.phoneNumber }}</mat-card-subtitle>
       </div>
       <p>{{card.description}}</p>
     </mat-card-content>
