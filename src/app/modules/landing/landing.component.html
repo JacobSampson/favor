@@ -1,46 +1,40 @@
-<div *ngIf="fb.user$ | async; then authenticated; else guest">
-    <!-- template will replace this div -->
+<div *ngIf="fb.user$ | async as user">
+    <mat-tab-group mat-stretch-tabs>
+        <mat-tab label="They're Fulfilling">
+
+            <section class="iso-opportunity">
+                <mat-list class="iso__list">
+                  <app-iso-card *ngFor="let card of theyAreFulfilling | async" [card]="card"></app-iso-card>
+                </mat-list>
+            </section>
+
+        </mat-tab>
+        <mat-tab label="They've Fulfilled">
+
+            <section class="iso-opportunity">
+                <mat-list class="iso__list">
+                  <app-iso-card *ngFor="let card of theyHaveFulfilled | async" [card]="card"></app-iso-card>
+                </mat-list>
+            </section>
+
+        </mat-tab>
+        <mat-tab label="I'm Fulfilling">
+
+            <section class="iso-opportunity">
+                <mat-list class="iso__list">
+                <app-iso-card *ngFor="let card of iAmFulfilling | async" [card]="card"></app-iso-card>
+                </mat-list>
+            </section>
+
+        </mat-tab>
+        <mat-tab label="I've Fulfilled">
+
+            <section class="iso-opportunity">
+                <mat-list class="iso__list">
+                <app-iso-card *ngFor="let card of iHaveFulfilled | async" [card]="card"></app-iso-card>
+                </mat-list>
+            </section>
+
+        </mat-tab>
+    </mat-tab-group>
 </div>
-
-<ng-template #authenticated>
-    <div *ngIf="fb.user$ | async as user">
-        <mat-tab-group mat-stretch-tabs>
-            <mat-tab label="They're Fulfilling">
-
-                <section class="iso-opportunity">
-                    <mat-list class="iso__list">
-                      <app-iso-card *ngFor="let card of theyAreFulfilling | async" [card]="card"></app-iso-card>
-                    </mat-list>
-                </section>
-
-            </mat-tab>
-            <mat-tab label="They've Fulfilled"> 
-
-                <section class="iso-opportunity">
-                    <mat-list class="iso__list">
-                      <app-iso-card *ngFor="let card of theyHaveFulfilled | async" [card]="card"></app-iso-card>
-                    </mat-list>
-                </section>
-
-            </mat-tab>
-            <mat-tab label="I'm Fulfilling">
-
-                <section class="iso-opportunity">
-                    <mat-list class="iso__list">
-                    <app-iso-card *ngFor="let card of iAmFulfilling | async" [card]="card"></app-iso-card>
-                    </mat-list>
-                </section>
-
-            </mat-tab>
-            <mat-tab label="I've Fulfilled">
-
-                <section class="iso-opportunity">
-                    <mat-list class="iso__list">
-                    <app-iso-card *ngFor="let card of iHaveFulfilled | async" [card]="card"></app-iso-card>
-                    </mat-list>
-                </section>
-
-            </mat-tab>
-        </mat-tab-group>
-    </div>
-</ng-template>
