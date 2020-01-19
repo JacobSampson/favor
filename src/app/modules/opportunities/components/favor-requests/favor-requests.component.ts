@@ -14,7 +14,6 @@ export class FavorRequestsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.request)
   }
 
 }
