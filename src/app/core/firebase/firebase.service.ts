@@ -232,6 +232,12 @@ export class FirebaseService {
         docs.forEach(doc => {
           const opportunity = doc.data() as Opportunity;
           opportunity.id = doc.id;
+
+          // Manually convert time stamps to date
+          opportunity.startDate = doc.data().startDate.toDate()
+          opportunity.endDate = doc.data().endDate.toDate()
+          opportunity.postedDate = doc.data().postedDate.toDate()
+
           requests.push(opportunity);
         });
 
