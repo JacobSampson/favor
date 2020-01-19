@@ -11,20 +11,22 @@
     </li>
     <li class="nav-bar__item">
       <a routerLink="/iso" class="nav-bar__link"
-        routerLinkActive="nav-bar__link--selected">
+        routerLinkActive="nav-bar__link--selected"
+        [class.nav-bar__link--disabled]="!fb.user">
         ISO
       </a>
     </li>
     <li class="nav-bar__item">
       <a routerLink="/opportunities" class="nav-bar__link"
-        routerLinkActive="nav-bar__link--selected">
+        routerLinkActive="nav-bar__link--selected"
+        [class.nav-bar__link--disabled]="!fb.user">
         Opportunities
       </a>
     </li>
     <li class="nav-bar__item">
       <button mat-button class="nav-bar__button"
-        (click)="fb.user$ ? fb.signOut() : fb.googleSignin()">
-        {{fb.user$ ? 'Sign Out' : 'Sign In'}}
+        (click)="fb.user ? fb.signOut() : fb.googleSignin()">
+        {{fb.user ? 'Sign Out' : 'Sign In'}}
       </button>
     </li>
   </ul>
