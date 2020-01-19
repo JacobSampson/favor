@@ -151,8 +151,6 @@ export class FirebaseService {
         });
 
         resolve(requests);
-
-        console.log(requests);
       });
     });
   }
@@ -205,8 +203,6 @@ export class FirebaseService {
         });
 
         resolve(requests);
-
-        console.log(requests);
       });
     });
   }

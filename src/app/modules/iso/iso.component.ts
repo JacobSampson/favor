@@ -14,7 +14,6 @@ export class IsoComponent implements OnInit {
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() {
-    this.cards.then(console.log);
   }
 
 }

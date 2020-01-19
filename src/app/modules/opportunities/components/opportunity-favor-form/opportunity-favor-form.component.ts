@@ -17,6 +17,7 @@ export class OpportunityFavorFormComponent implements OnInit {
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() {
+    console.log(this.opportunity)
   }
 
   onSubmit() {
