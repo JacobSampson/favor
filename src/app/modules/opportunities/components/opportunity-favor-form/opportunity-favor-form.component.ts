@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import OpportunityFavorRequest from 'src/app/core/models/opportunity-favor-request';
 
 @Component({
   selector: 'app-opportunity-favor-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpportunityFavorFormComponent implements OnInit {
 
-  public model: any;
+  public model: OpportunityFavorRequest = this.reset();
 
   constructor() { }
 
@@ -15,7 +16,14 @@ export class OpportunityFavorFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.model = this.reset();
+  }
 
+  reset(): OpportunityFavorRequest {
+    return new OpportunityFavorRequest(
+      null, // description
+      null  // payment
+    )
   }
 
 }

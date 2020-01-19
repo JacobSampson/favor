@@ -4,13 +4,11 @@
       [ngStyle]="{backgroundImage: 'url(' + card.userPosted?.photoUrl + ')'}">
     </div>
     <mat-card-title>{{card.title}}</mat-card-title>
-    <mat-card-subtitle> Posted on: {{card.postedDate}}</mat-card-subtitle>
-    <mat-card-subtitle> Starting: {{card.startDate}}</mat-card-subtitle>
-    <mat-card-subtitle *ngIf="card.endDate"> Ending: {{card.endDate}}</mat-card-subtitle>
-    <!-- <mat-card-subtitle> Starting: {{card.startDate.toLocaleDateString()}} - {{card.startDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle> -->
-    <!-- <mat-card-subtitle *ngIf="card.endDate"> Ending: {{card.endDate.toLocaleDateString()}} - {{card.endDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle> -->
+    <mat-card-subtitle class="opportunity-card__posted"> Posted {{card.postedDate.toLocaleDateString()}} - {{card.postedDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="opportunity-card__description">
+    <mat-card-subtitle> Starting {{card.startDate.toLocaleDateString()}} - {{card.startDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="card.endDate"> Ending {{card.endDate.toLocaleDateString()}} - {{card.endDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
     <p> {{card.description}} </p>
   </mat-card-content>
   <mat-card-content class="opportunity-card__locations">
@@ -22,7 +20,7 @@
                            (closed)="isOpen = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Request Favor
+            Request new &nbsp; <b>Favor</b>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <app-opportunity-favor-form></app-opportunity-favor-form>

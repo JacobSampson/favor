@@ -10,7 +10,7 @@
   <a class="location__location"
     [attr.href]="fromLocation ? null : wholeLocationLink"
     [class.location__location--individual]="true"
-    [class.disabled]="fromLocation"
+    [class.location__location--disabled]="fromLocation"
     target="_blank">
     <i class="fa fa-map-marker fa-2x location__pin"></i>
     <p class="location__descriptor">{{toLocation}}</p>
