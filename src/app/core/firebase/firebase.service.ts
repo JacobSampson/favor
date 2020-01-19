@@ -117,9 +117,11 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
-          if (!request.fullfilled && !request.userFulfilling && request.userPosted.uid === this.user.uid) {
-            requests.push(request);
-          }
+          this.user$.subscribe(currentUser => {
+            if (!request.fullfilled && !request.userFulfilling && request.userPosted.uid === currentUser.uid) {
+              requests.push(request);
+            }
+          });
         });
 
         resolve(requests);
@@ -169,9 +171,11 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
           
-          if (request.userFulfilling && request.userPosted.uid === this.user.uid) {
-            requests.push(request);
-          }
+          this.user$.subscribe(currentUser => {
+            if (request.userFulfilling && request.userPosted.uid === currentUser.uid) {
+              requests.push(request);
+            }
+          });
         });
 
         resolve(requests);
