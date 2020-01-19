@@ -6,4 +6,5 @@ export interface User {
   photoUrl: string;
   school: School;
   email: string;
+  phoneNumber: string;
 }

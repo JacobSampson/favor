@@ -16,7 +16,7 @@ export class GoogleMapsService {
    */
   public getDirectionsFromToUrl(from: string, to: string): string {
     let str = this.DIR_BASE + '&origin=' + encodeURIComponent(from);
-    str.concat('&destination=' + encodeURIComponent(to));
+    str += '&destination=' + encodeURIComponent(to);
     return str;
   }
 
