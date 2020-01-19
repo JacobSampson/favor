@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/core/firebase/firebase.service';
-import IsoRequest from 'src/app/core/models/iso-request';
+import Opportunity from 'src/app/core/models/opportunity';
 
 @Component({
-  selector: 'app-iso-form',
-  templateUrl: './iso-form.component.html',
-  styleUrls: ['./iso-form.component.scss']
+  selector: 'app-opportunity-form',
+  templateUrl: './opportunity-form.component.html',
+  styleUrls: ['./opportunity-form.component.scss']
 })
-export class IsoFormComponent implements OnInit {
+export class OpportunityFormComponent implements OnInit {
 
-  public model: IsoRequest = new IsoRequest(
+  public model: Opportunity = new Opportunity(
     null, // id
     null, // title
     null, // description
-    null, // payment
     null, // postedDate
-    null, // fullfillmentDate
+    null, // startDate
+    null, // endDate
     null, // toLocation
     null, // fromLocation
     null, // userPosted
-    null, // fullfilled
-    null  // userFulfilling
+    null, // requests
   );
 
   constructor(private fb: FirebaseService) { }
@@ -29,7 +28,6 @@ export class IsoFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.model);
-    this.fb.addIsoRequest(this.model);
+    this.fb.addOpportunity(this.model);
   }
-
 }

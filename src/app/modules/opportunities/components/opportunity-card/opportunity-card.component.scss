@@ -1,0 +1,12 @@
+.opportunity-card {
+    max-width: 600px;
+    margin: 2em 0;
+
+    &__head {
+      display: block;
+    }
+
+    &__image {
+      background-size: cover;
+    }
+}

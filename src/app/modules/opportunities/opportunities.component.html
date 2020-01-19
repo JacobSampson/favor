@@ -1,1 +1,15 @@
-<p>opportunities works!</p>
+<section class="opportunity">
+    <mat-accordion class="opportunity__expansion">
+        <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Create Opportunity
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-opportunity-form></app-opportunity-form>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-list>
+        <app-opportunity-card *ngFor="let card of cards | async" [card]="card"></app-opportunity-card>
+    </mat-list>
+</section>

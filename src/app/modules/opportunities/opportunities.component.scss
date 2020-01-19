@@ -1,0 +1,13 @@
+@import '~src/assets/scss/base/variables';
+
+.opportunity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $col-bkgd;
+
+  &__expansion {
+    max-width: 600px;
+  }
+}
