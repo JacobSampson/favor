@@ -1,17 +1,17 @@
 import { User } from './user';
+import IsoRequest from './iso-request';
 
-export default class IsoRequest {
+export default class Opportunity {
   constructor(
     public id: string,
     public title: string,
     public description: string,
-    public paymentAmount: number,
     public postedDate: Date,
-    public fulfillmentDate: string,
+    public startDate: Date,
+    public endDate: Date,
     public toLocation: string,
     public fromLocation: string,
     public userPosted: User,
-    public fullfilled: boolean,
-    public userFulfilling?: User
+    public requests: IsoRequest[]
   ) {}
 }
