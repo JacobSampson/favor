@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import IsoRequest from 'src/app/core/models/iso-request';
+import { FirebaseService } from 'src/app/core/firebase/firebase.service';
 
 @Component({
   selector: 'app-iso-card',
@@ -9,6 +10,8 @@ import IsoRequest from 'src/app/core/models/iso-request';
 export class IsoCardComponent implements OnInit {
 
   @Input() card: IsoRequest;
+
+  constructor(private fb: FirebaseService) { }
 
   ngOnInit() { }
 }

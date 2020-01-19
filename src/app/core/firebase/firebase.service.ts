@@ -207,6 +207,18 @@ export class FirebaseService {
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
   }
 
+  // Fulfill ISO Request
+  public fulfillIsoRequest(isoRequest: IsoRequest) {
+    isoRequest.userFulfilling = this.user;
+    return this.updateIsoRequest(isoRequest);
+  }
+
+  // Mark ISO Request as Fulfilled
+  public markIsoRequestAsFulfilled(isoRequest: IsoRequest) {
+    isoRequest.fullfilled = true;
+    return this.updateIsoRequest(isoRequest);
+  }
+
   // Opportunity
 
   // Get Opportunities
