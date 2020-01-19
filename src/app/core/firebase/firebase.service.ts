@@ -289,7 +289,7 @@ export class FirebaseService {
   // Request Favor
   public requestFavor(opportunity: Opportunity, favor: OpportunityFavorRequest) {
     opportunity.requests = opportunity.requests || [];
-    opportunity.requests = [...opportunity.requests];
+    opportunity.requests = [...opportunity.requests, favor];
 
     window.location.reload(false);
 
