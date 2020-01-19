@@ -27,7 +27,8 @@ export class OpportunityFavorFormComponent implements OnInit {
   reset(): OpportunityFavorRequest {
     return new OpportunityFavorRequest(
       null, // description
-      null  // payment
+      null, // payment
+      null  // user
     );
   }
 

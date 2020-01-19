@@ -288,6 +288,8 @@ export class FirebaseService {
 
   // Request Favor
   public requestFavor(opportunity: Opportunity, favor: OpportunityFavorRequest) {
+    favor.user = this.user;
+
     opportunity.requests = opportunity.requests || [];
     opportunity.requests = [...opportunity.requests, favor];
 
