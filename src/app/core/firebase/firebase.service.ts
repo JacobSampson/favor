@@ -293,11 +293,11 @@ export class FirebaseService {
     opportunity.requests = opportunity.requests || [];
     opportunity.requests = [...opportunity.requests, favor];
 
-    console.log(opportunity)
+    console.log(opportunity);
 
     // window.location.reload(false);
 
-    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/opportunities/${opportunity.id}`).update(JSON.parse(JSON.stringify(opportunity)));
+    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/opportunities/${opportunity.id}`).update({...opportunity});
   }
 
   // School
