@@ -35,5 +35,4 @@ export class IsoFormComponent implements OnInit {
       null  // userFulfilling
     );
   }
-
 }

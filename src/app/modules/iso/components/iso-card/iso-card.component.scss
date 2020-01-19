@@ -1,19 +1,33 @@
 @import '~src/assets/scss/base/variables';
 
 .iso-card {
-    margin: 1em 0;
+  margin: 1em 0;
+  display: block;
+  width: 80vw;
+  max-width: 600px;
+
+  &__head {
     display: block;
+  }
 
-    &__head {
-      display: block;
-    }
+  &__image {
+    background-size: cover;
+  }
 
-    &__image {
-      background-size: cover;
-    }
+  &__button {
+    background-color: $col-frgd;
+    color: $col-text-secondary;
+  }
 
-    &__button {
-      background-color: $col-frgd;
-      color: $col-text-secondary;
-    }
+  &__description {
+
+  }
+
+  &__footer {
+    margin: 0 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
 }

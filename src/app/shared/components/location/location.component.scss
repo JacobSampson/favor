@@ -1,13 +1,14 @@
 .location {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin: 3em 3em;
+  justify-content: space-around;
+  margin: 3em 3em 0em 3em;
 
   &__location {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
   }
 
   &__descriptor {
