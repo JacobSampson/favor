@@ -2,35 +2,45 @@
     <!-- template will replace this div -->
 </div>
 
-<ng-template #guest>
-    <button (click)="fb.googleSignin()">
-        Login / Create Account
-    </button>
-</ng-template>
-
 <ng-template #authenticated>
     <div *ngIf="fb.user$ | async as user">
         <mat-tab-group mat-stretch-tabs>
-            <mat-tab label="Active Requests">
+            <mat-tab label="They're Fulfilling">
 
                 <section class="iso-opportunity">
                     <mat-list class="iso__list">
-                      <app-iso-card *ngFor="let card of cardsActiveRequests | async" [card]="card"></app-iso-card>
+                      <app-iso-card *ngFor="let card of theyAreFulfilling | async" [card]="card"></app-iso-card>
                     </mat-list>
-                  </section>
+                </section>
 
             </mat-tab>
-            <mat-tab label="Fulfilled Requests"> 
+            <mat-tab label="They've Fulfilled"> 
 
                 <section class="iso-opportunity">
                     <mat-list class="iso__list">
-                      <app-iso-card *ngFor="let card of cardsFulfilledRequests | async" [card]="card"></app-iso-card>
+                      <app-iso-card *ngFor="let card of theyHaveFulfilled | async" [card]="card"></app-iso-card>
                     </mat-list>
-                  </section>
+                </section>
 
             </mat-tab>
-            <mat-tab label="Current Fulfillments"> Content 3 </mat-tab>
-            <mat-tab label="Completed Fulfillments"> Content 4 </mat-tab>
+            <mat-tab label="I'm Fulfilling">
+
+                <section class="iso-opportunity">
+                    <mat-list class="iso__list">
+                    <app-iso-card *ngFor="let card of iAmFulfilling | async" [card]="card"></app-iso-card>
+                    </mat-list>
+                </section>
+
+            </mat-tab>
+            <mat-tab label="I've Fulfilled">
+
+                <section class="iso-opportunity">
+                    <mat-list class="iso__list">
+                    <app-iso-card *ngFor="let card of iHaveFulfilled | async" [card]="card"></app-iso-card>
+                    </mat-list>
+                </section>
+
+            </mat-tab>
         </mat-tab-group>          
         <button (click)="fb.signOut()">
             Logout

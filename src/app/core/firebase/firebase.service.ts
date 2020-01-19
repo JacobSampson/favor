@@ -101,8 +101,8 @@ export class FirebaseService {
     });
   }
 
-  // Get all unfulfilled ISO requests by posting User
-  public getUnfulfilledIsoRequestsByPostingUser() {
+  // Get all fulfilling ISO requests by fulfilling User
+  public getFulfillingIsoRequestsByFulfillingUser() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
       requests.ref.get({ source: "server" }).then(data => {
@@ -117,11 +117,9 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
-          this.user$.subscribe(currentUser => {
-            if (!request.fullfilled && !request.userFulfilling && request.userPosted.uid === currentUser.uid) {
-              requests.push(request);
-            }
-          });
+          if (!request.fullfilled && request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
+            requests.push(request);
+          }
         });
 
         resolve(requests);
@@ -129,7 +127,35 @@ export class FirebaseService {
     });
   }
 
-  // Get all fulfilling ISO requests by fulfilling User
+  // Get all fulfilling ISO requests by posting User
+  public getFulfillingIsoRequestsByPostingUser() {
+    const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
+    return new Promise<IsoRequest[]>((resolve, reject) => {
+      requests.ref.get({ source: "server" }).then(data => {
+        const docs = data.docs;
+        const requests = Array<IsoRequest>();
+
+        docs.forEach(doc => {
+          const request = doc.data() as IsoRequest;
+          request.id = doc.id;
+
+          // Manually convert time stamps to date
+          request.postedDate = doc.data().postedDate.toDate()
+          request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
+          
+          if (!request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
+            requests.push(request);
+          }
+        });
+
+        resolve(requests);
+
+        console.log(requests);
+      });
+    });
+  }
+
+  // Get all fulfilled ISO requests by fulfilling User
   public getFulfilledIsoRequestsByFulfillingUser() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
@@ -145,7 +171,7 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
-          if (request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
+          if (request.fullfilled && request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
             requests.push(request);
           }
         });
@@ -155,7 +181,7 @@ export class FirebaseService {
     });
   }
 
-  // Get all fulfilling ISO requests by posting User
+  // Get all fulfilled ISO requests by posting User
   public getFulfilledIsoRequestsByPostingUser() {
     const requests = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests');
     return new Promise<IsoRequest[]>((resolve, reject) => {
@@ -171,14 +197,14 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
           
-          this.user$.subscribe(currentUser => {
-            if (request.userFulfilling && request.userPosted.uid === currentUser.uid) {
-              requests.push(request);
-            }
-          });
+          if (request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
+            requests.push(request);
+          }
         });
 
         resolve(requests);
+
+        console.log(requests);
       });
     });
   }

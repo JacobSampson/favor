@@ -9,8 +9,10 @@ import IsoRequest from 'src/app/core/models/iso-request';
 })
 export class LandingComponent implements OnInit {
 
-  public cardsActiveRequests: Promise<IsoRequest[]> = this.fb.getUnfulfilledIsoRequestsByPostingUser();
-  public cardsFulfilledRequests: Promise<IsoRequest[]> = this.fb.getFulfilledIsoRequestsByPostingUser();
+  public theyAreFulfilling: Promise<IsoRequest[]> = this.fb.getFulfillingIsoRequestsByPostingUser();
+  public theyHaveFulfilled: Promise<IsoRequest[]> = this.fb.getFulfilledIsoRequestsByPostingUser();
+  public iAmFulfilling: Promise<IsoRequest[]> = this.fb.getFulfillingIsoRequestsByFulfillingUser();
+  public iHaveFulfilled: Promise<IsoRequest[]> = this.fb.getFulfilledIsoRequestsByFulfillingUser();
 
   constructor(public fb: FirebaseService) { }
 

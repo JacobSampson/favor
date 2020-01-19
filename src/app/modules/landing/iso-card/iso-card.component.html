@@ -5,7 +5,8 @@
       </div>
       <mat-card-title>{{card.title}}</mat-card-title>
       <mat-card-subtitle> Posted on: {{card.postedDate.toLocaleDateString()}} - {{card.postedDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}}</mat-card-subtitle>
-      <mat-card-subtitle> Fulfilled by: {{card.fulfillmentDate.toLocaleDateString()}} - {{card.fulfillmentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
+      <mat-card-subtitle> Fulfill by: {{card.fulfillmentDate.toLocaleDateString()}} - {{card.fulfillmentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
+      <mat-card-subtitle> Fulfilled by: {{card.userFulfilling?.name}} </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="iso-card__description">
       <p>{{card.description}}</p>
@@ -14,7 +15,9 @@
       <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
     </mat-card-content>
     <mat-card-footer class="iso-card__footer">
-        <mat-card-subtitle class="iso-card__payment">${{card.paymentAmount}}</mat-card-subtitle>
+      <button mat-button *ngIf="!card.fullfilled && fb.user.uid === card.userPosted.uid" class="iso-card__button" (click)="fb.markIsoRequestAsFulfilled(card)">Mark as Fulfilled</button>
+      <div *ngIf="card.fullfilled || fb.user.uid !== card.userPosted.uid"></div>
+      <mat-card-subtitle class="iso-card__payment">${{card.paymentAmount}}</mat-card-subtitle>
     </mat-card-footer>
   </mat-card>
   
