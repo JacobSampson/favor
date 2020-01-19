@@ -63,12 +63,13 @@
       name="paymentAmount"
       #paymentAmount="ngModel"
       [(ngModel)]="model.paymentAmount"
+      placeholder="$"
       required
       placeholder=""
       type="number">
   </div>
 
-  <button class="form__button"
+  <button mat-button class="form__button"
     [disabled]="!form.form.valid"
     type="submit">
     Submit
