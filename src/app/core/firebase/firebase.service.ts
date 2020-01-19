@@ -16,6 +16,7 @@ import OpportunityFavorRequest from '../models/opportunity-favor-request';
   providedIn: 'root'
 })
 export class FirebaseService {
+  private DELAY = 250;
   user$: Observable<User>;
   user: User;
 
@@ -215,7 +216,9 @@ export class FirebaseService {
 
   // Update ISO request
   public updateIsoRequest(isoRequest: IsoRequest) {
-    window.location.reload(false);
+    setInterval(function() {
+      window.location.reload(false);
+    }, this.DELAY);
 
     return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).update({...isoRequest});
   }
@@ -231,7 +234,9 @@ export class FirebaseService {
     isoRequest.postedDate = new Date();
     isoRequest.userPosted = this.user;
 
-    window.location.reload(false);
+    setInterval(function() {
+      window.location.reload(false);
+    }, this.DELAY);
 
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
   }
@@ -281,7 +286,9 @@ export class FirebaseService {
     opportunity.postedDate = new Date();
     opportunity.userPosted = this.user;
 
-    window.location.reload(false);
+    setInterval(function() {
+      window.location.reload(false);
+    }, this.DELAY);
 
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities').add({...opportunity});
   }
@@ -291,7 +298,9 @@ export class FirebaseService {
     favor.user = this.user;
     opportunity.requests = [...(opportunity.requests || []), favor];
 
-    // window.location.reload(false);
+    setInterval(function() {
+      window.location.reload(false);
+    }, this.DELAY);
 
     opportunity.userPosted = {...opportunity.userPosted};
 
