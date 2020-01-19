@@ -1,7 +1,5 @@
 <form action="" (ngSubmit)="onSubmit()" class="form" #form="ngForm">
 
-    <h3 class="iso-form__topic">Create Opportunity</h3>
-  
     <div class="form__group">
       <label class="form__label" for="title">Title</label>
       <input class="form__control"
@@ -12,7 +10,7 @@
         placeholder=""
         type="text">
     </div>
-  
+
     <div class="form__group">
       <label class="form__label" for="description">Description</label>
       <textarea class="form__control form__control--description"
@@ -24,29 +22,53 @@
         type="text">
       </textarea>
     </div>
-  
+
+    <h3 class="iso-form__topic">Date & Time</h3>
+
     <div class="form__group">
-      <label class="form__label" for="startDate">Start Date</label>
+      <label class="form__label" for="startDateField">Start Date</label>
       <input class="form__control"
-        name="startDate"
-        #startDate="ngModel"
-        [(ngModel)]="model.startDate"
+        name="startDateField"
+        #startDateField="ngModel"
+        [(ngModel)]="startDate"
         required
         placeholder=""
         type="date">
     </div>
 
     <div class="form__group">
-        <label class="form__label" for="endDate">End Date</label>
-        <input class="form__control"
-          name="endDate"
-          #endDate="ngModel"
-          [(ngModel)]="model.endDate"
-          required
-          placeholder=""
-          type="date">
-      </div>
-  
+      <label class="form__label" for="startTimeField">Start Time</label>
+      <input class="form__control"
+        name="startTimeField"
+        #startTimeField="ngModel"
+        [(ngModel)]="startTime"
+        placeholder=""
+        type="time">
+    </div>
+
+    <div class="form__group">
+      <label class="form__label" for="endDateField">End Date</label>
+      <input class="form__control"
+        name="endDateField"
+        #endDateField="ngModel"
+        [(ngModel)]="endDate"
+        required
+        placeholder=""
+        type="date">
+    </div>
+
+    <div class="form__group">
+      <label class="form__label" for="endTimeField">End Time</label>
+      <input class="form__control"
+        name="endTimeField"
+        #endTimeField="ngModel"
+        [(ngModel)]="endTime"
+        placeholder=""
+        type="time">
+    </div>
+
+    <h3 class="iso-form__topic">Location</h3>
+
     <div class="form__group">
       <label class="form__label" for="toLocation">To</label>
       <input class="form__control"
@@ -57,7 +79,7 @@
         placeholder=""
         type="text">
     </div>
-  
+
     <div class="form__group">
       <label class="form__label" for="fromLocation">From</label>
       <input class="form__control"
@@ -68,10 +90,10 @@
         type="text">
     </div>
 
-    <button class="form__button"
+    <button mat-button class="form__button"
       [disabled]="!form.form.valid"
       type="submit">
       Submit
     </button>
-  
+
 </form>

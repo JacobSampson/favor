@@ -1,8 +1,10 @@
 @import '~src/assets/scss/base/variables';
 
 .opportunity-card {
-    max-width: 600px;
-    margin: 2em 0;
+  margin: 1em 0;
+  display: block;
+  width: 80vw;
+  max-width: 600px;
 
     &__head {
       display: block;
@@ -15,14 +17,14 @@
     &__button {
       background-color: $col-frgd;
       color: $col-text-secondary;
-  
+
       transition: 0.15s ease-in-out;
-  
+
       &:hover {
         background-color: darkgray;
       }
     }
-  
+
     &__footer {
       margin: 0 0.5em;
       display: flex;
