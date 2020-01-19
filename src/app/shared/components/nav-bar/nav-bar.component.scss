@@ -43,6 +43,12 @@
       cursor: default;
       color: $col-text-disabled;
     }
+
+    &--disabled {
+      color: $col-bkgd;
+      user-select: none;
+      pointer-events: none;
+    }
   }
 
   &__button {

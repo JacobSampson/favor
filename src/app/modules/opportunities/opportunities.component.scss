@@ -5,10 +5,10 @@
   flex-direction: column;
   align-items: center;
 
-  background-color: $col-bkgd;
-
   &__expansion {
     max-width: 600px;
+    width: 90vw;
+    margin-top: 2em;
   }
 
   &__list {

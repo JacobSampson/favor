@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/core/firebase/firebase.service';
 import IsoRequest from 'src/app/core/models/iso-request';
+import { dateTimeStringsToDate } from 'src/app/core/utilities/date-time';
 
 @Component({
   selector: 'app-iso-form',
@@ -11,18 +12,18 @@ export class IsoFormComponent implements OnInit {
 
   public model: IsoRequest = this.reset();
 
+  public fulfillmentDate: Date;
+  public fulfillmentTime: string;
+
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() { }
 
   onSubmit() {
-    // Set fulfillment date and time manually
-    // https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
-    var parts = this.model.fulfillmentDate.toString().split('-');
-    var fulfillmentDate = new Date(Number.parseInt(parts[0]), 
-        Number.parseInt(parts[1]) - 1, Number.parseInt(parts[2])); 
-
-    this.model.fulfillmentDate = fulfillmentDate
+    this.model.fulfillmentDate = dateTimeStringsToDate(
+      this.fulfillmentDate.toString(),
+      this.fulfillmentTime
+    );
 
     this.fb.addIsoRequest(this.model);
     this.model = this.reset();

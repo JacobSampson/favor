@@ -1,7 +1,5 @@
 <form action="" (ngSubmit)="onSubmit()" class="form" #form="ngForm">
 
-  <!-- <h3 class="iso-form__topic">Post ISO</h3> -->
-
   <div class="form__group">
     <label class="form__label" for="title">Title</label>
     <input class="form__control"
@@ -25,16 +23,30 @@
     </textarea>
   </div>
 
+  <h3 class="iso-form__topic">Date & Time</h3>
+
   <div class="form__group">
-    <label class="form__label" for="fulfillmentDate">Fulfillment Date</label>
+    <label class="form__label" for="fulfillmentDateField">Date</label>
     <input class="form__control"
-      name="fulfillmentDate"
-      #fulfillmentDate="ngModel"
-      [(ngModel)]="model.fulfillmentDate"
+      name="fulfillmentDateField"
+      #fulfillmentDateField="ngModel"
+      [(ngModel)]="fulfillmentDate"
       required
       placeholder=""
       type="date">
   </div>
+
+  <div class="form__group">
+    <label class="form__label" for="fulfillmentTimeField">Time</label>
+    <input class="form__control"
+      name="fulfillmentTimeField"
+      #fulfillmentTimeField="ngModel"
+      [(ngModel)]="fulfillmentTime"
+      placeholder=""
+      type="time">
+  </div>
+
+  <h3 class="iso-form__topic">Location</h3>
 
   <div class="form__group">
     <label class="form__label" for="toLocation">To</label>
@@ -57,13 +69,15 @@
       type="text">
   </div>
 
+  <h3 class="iso-form__topic">Price</h3>
+
   <div class="form__group">
-    <label class="form__label" for="paymentAmount">Payment</label>
+    <label class="form__label" for="paymentAmount">$</label>
     <input class="form__control"
       name="paymentAmount"
       #paymentAmount="ngModel"
       [(ngModel)]="model.paymentAmount"
-      placeholder="$"
+      placeholder=""
       required
       placeholder=""
       type="number">
