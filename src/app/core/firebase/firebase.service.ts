@@ -100,6 +100,10 @@ export class FirebaseService {
           }
         });
 
+        requests.sort((req1, req2) => {
+          return req2.postedDate.valueOf() - req1.postedDate.valueOf();
+        });
+
         resolve(requests);
       });
     });
@@ -260,7 +264,7 @@ export class FirebaseService {
     const opportunities = this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities');
     return new Promise<Opportunity[]>((resolve, reject) => {
       opportunities.ref.get({ source: "server" }).then(data => {
-        const docs = data.docs;
+        const docs: Array<any> = data.docs;
         const requests = Array<Opportunity>();
 
         docs.forEach(doc => {
@@ -273,6 +277,10 @@ export class FirebaseService {
           opportunity.postedDate = doc.data().postedDate.toDate()
 
           requests.push(opportunity);
+        });
+
+        requests.sort((req1, req2) => {
+          return req2.postedDate.valueOf() - req1.postedDate.valueOf();
         });
 
         resolve(requests);
