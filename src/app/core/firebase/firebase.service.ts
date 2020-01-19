@@ -288,14 +288,16 @@ export class FirebaseService {
 
   // Request Favor
   public requestFavor(opportunity: Opportunity, favor: OpportunityFavorRequest) {
-    favor.user = this.user;
+    favor.user = Object.assign({}, this.user);
 
     opportunity.requests = opportunity.requests || [];
     opportunity.requests = [...opportunity.requests, favor];
 
-    window.location.reload(false);
+    console.log(opportunity)
 
-    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/opportunities/${opportunity.id}`).update({...opportunity});
+    // window.location.reload(false);
+
+    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/opportunities/${opportunity.id}`).update(JSON.parse(JSON.stringify(opportunity)));
   }
 
   // School
