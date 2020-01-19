@@ -15,7 +15,8 @@
     padding: 0;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    margin: 0em 0;
 
     list-style: none;
   }
@@ -58,8 +59,7 @@
   &__icon {
     width: 2em;
     height: 2em;
-    transform: translateY(25%);
-    margin: 0 0.3em;
+    margin: 0 0.1em;
     // border: 3px solid white;
     // border-radius: 50%;
     // padding: 0.5em;
