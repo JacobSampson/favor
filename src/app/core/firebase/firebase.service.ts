@@ -44,11 +44,14 @@ export class FirebaseService {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<GoogleUser> = this.afs.doc(`users/${googleUser.uid}`);
 
+    console.log(googleUser)
+
     const data = {
       uid: googleUser.uid,
       name: googleUser.displayName,
       email: googleUser.email,
-      photoUrl: googleUser.photoURL
+      photoUrl: googleUser.photoURL,
+      phoneNumber: googleUser.phoneNumber
     }
 
     return userRef.set(data, { merge: true })
@@ -62,7 +65,8 @@ export class FirebaseService {
       name: user.name,
       photoUrl: user.photoUrl,
       school: user.school,
-      email: user.email
+      email: user.email,
+      phoneNumber: user.phoneNumber
     };
 
     return userRef.set(data, { merge: true })
