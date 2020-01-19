@@ -22,8 +22,9 @@
       </a>
     </li>
     <li class="nav-bar__item">
-      <button mat-button class="nav-bar__button">
-        Log Out
+      <button mat-button class="nav-bar__button"
+        (click)="fb.user$ ? fb.signOut() : fb.googleSignin()">
+        {{fb.user$ ? 'Sign Out' : 'Sign In'}}
       </button>
     </li>
   </ul>
