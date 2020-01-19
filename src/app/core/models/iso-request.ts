@@ -7,7 +7,7 @@ export default class IsoRequest {
     public description: string,
     public paymentAmount: number,
     public postedDate: Date,
-    public fulfillmentDate: Date,
+    public fulfillmentDate: string,
     public toLocation: string,
     public fromLocation: string,
     public userPosted: User,

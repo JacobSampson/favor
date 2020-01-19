@@ -24,6 +24,6 @@ export class IsoCardComponent implements OnInit {
 
 
   ngOnInit() {
-
+    console.log( this.card.postedDate.getMonth() + "/" + this.card.postedDate.getDate() + "/" + this.card.postedDate.getFullYear() + " " + this.card.postedDate.getHours() + ":" + this.card.postedDate.getMinutes());
   }
 }
