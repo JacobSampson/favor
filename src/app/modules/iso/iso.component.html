@@ -1,15 +1,15 @@
 <section class="iso">
   <mat-accordion class="iso__expansion">
-    <mat-expansion-panel>
+    <mat-expansion-panel class="iso__panel">
       <mat-expansion-panel-header>
-        <mat-panel-title>
+        <mat-panel-title class="iso__title">
           Make Request
         </mat-panel-title>
       </mat-expansion-panel-header>
       <app-iso-form class="iso__form"></app-iso-form>
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-list>
+  <mat-list class="iso__list">
     <app-iso-card *ngFor="let card of cards | async" [card]="card"></app-iso-card>
   </mat-list>
 </section>

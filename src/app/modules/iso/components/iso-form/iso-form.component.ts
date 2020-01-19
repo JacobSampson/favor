@@ -9,27 +9,31 @@ import IsoRequest from 'src/app/core/models/iso-request';
 })
 export class IsoFormComponent implements OnInit {
 
-  public model: IsoRequest = new IsoRequest(
-    null, // id
-    null, // title
-    null, // description
-    null, // payment
-    null, // postedDate
-    null, // fullfillmentDate
-    null, // to
-    null, // from
-    null, // userPosted
-    null, // fullfilled
-    null  // userFulfilling
-  );
+  public model: IsoRequest = this.reset();
 
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() { }
 
   onSubmit() {
-    console.log(this.model);
     this.fb.addIsoRequest(this.model);
+    this.model = this.reset();
+  }
+
+  reset(): IsoRequest {
+    return new IsoRequest(
+      null, // id
+      null, // title
+      null, // description
+      null, // payment
+      null, // postedDate
+      null, // fullfillmentDate
+      null, // to
+      null, // from
+      null, // userPosted
+      null, // fullfilled
+      null  // userFulfilling
+    );
   }
 
 }

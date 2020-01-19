@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MaterialModule } from '../material.module';
+import { LocationComponent } from './components/location/location.component';
 
 @NgModule({
   declarations: [
-    NavBarComponent
+    NavBarComponent,
+    LocationComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ],
   exports: [
-    NavBarComponent
+    NavBarComponent,
+    LocationComponent
   ]
 })
 export class SharedModule { }

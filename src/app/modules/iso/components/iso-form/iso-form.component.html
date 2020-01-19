@@ -1,6 +1,6 @@
 <form action="" (ngSubmit)="onSubmit()" class="form" #form="ngForm">
 
-  <h3 class="iso-form__topic">Post ISO</h3>
+  <!-- <h3 class="iso-form__topic">Post ISO</h3> -->
 
   <div class="form__group">
     <label class="form__label" for="title">Title</label>
@@ -87,7 +87,7 @@
     </select>
   </div> -->
 
-  <button class="form__button"
+  <button mat-button class="form__button"
     [disabled]="!form.form.valid"
     type="submit">
     Submit

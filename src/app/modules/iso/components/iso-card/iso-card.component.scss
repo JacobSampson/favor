@@ -1,6 +1,8 @@
+@import '~src/assets/scss/base/variables';
+
 .iso-card {
-    max-width: 600px;
-    margin: 2em 0;
+    margin: 1em 0;
+    display: block;
 
     &__head {
       display: block;
@@ -8,5 +10,10 @@
 
     &__image {
       background-size: cover;
+    }
+
+    &__button {
+      background-color: $col-frgd;
+      color: $col-text-secondary;
     }
 }

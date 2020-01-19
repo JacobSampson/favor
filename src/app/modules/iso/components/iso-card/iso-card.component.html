@@ -5,12 +5,17 @@
       </div>
       <mat-card-title> {{card.title}} &nbsp;&nbsp; </mat-card-title>
       <mat-card-subtitle> {{card.postedDate}} </mat-card-subtitle>
-      <mat-card-subtitle> {{card.fromLocation}} </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
       <p> {{card.description}} </p>
   </mat-card-content>
+  <mat-card-content class="iso-card__locations">
+    <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
+  </mat-card-content>
+  <mat-card-content class="iso-card__payment">
+    <mat-card-subtitle>${{card.paymentAmount}}</mat-card-subtitle>
+  </mat-card-content>
   <mat-card-actions>
-      <button mat-button>Fulfill</button>
+      <button mat-button class="iso-card__button">Fulfill</button>
   </mat-card-actions>
 </mat-card>

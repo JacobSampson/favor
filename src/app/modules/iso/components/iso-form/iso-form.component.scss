@@ -3,12 +3,12 @@
 .form {
   padding: 2em 0;
   display: flex;
-  width: 100vw;
+  // width: 100vw;
   flex-direction: column;
   align-items: center;
 
-  background-color: $col-frgd;
-  color: $col-text-secondary;
+  // background-color: $col-frgd;
+  // color: $col-text-secondary;
 
   &__group {
     justify-self: center;
@@ -48,21 +48,25 @@
 
   &__button {
     grid-area: submit;
-    padding: 1em;
+    margin-top: 3em;
 
     cursor: pointer;
     color: $col-text-secondary;
     background: none;
     background-color: $col-secondary;
     border: none;
-    border: 2px solid $col-secondary;
+    border-radius: 0.25em;
 
     transition: 0.25s ease-in-out;
 
     &:hover {
-      background-color: white;
-      color: $col-text-primary;
-      border: 2px solid $col-bkgd;
+      background-color: darkred;
+    }
+
+    &:disabled {
+      background-color: darkgray;
+      user-select: none;
+      pointer-events: none;
     }
   }
 }
