@@ -1,4 +1,4 @@
-export function dateTimeStringsToDate(date: string, time: string): Date {
+export function dateTimeStringsToDate(date: string, time: string = '0:0'): Date {
   const timeParts = time.split(':');
 
   // Set fulfillment date and time manually, modified to use separate time field by Jacob Sampson
