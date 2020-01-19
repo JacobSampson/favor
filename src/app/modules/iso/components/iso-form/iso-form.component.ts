@@ -11,18 +11,29 @@ export class IsoFormComponent implements OnInit {
 
   public model: IsoRequest = this.reset();
 
+  public fulfillmentDate: Date;
+  public fulfillmentTime: string;
+
   constructor(private fb: FirebaseService) { }
 
   ngOnInit() { }
 
   onSubmit() {
-    // Set fulfillment date and time manually
-    // https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
-    var parts = this.model.fulfillmentDate.toString().split('-');
-    var fulfillmentDate = new Date(Number.parseInt(parts[0]), 
-        Number.parseInt(parts[1]) - 1, Number.parseInt(parts[2])); 
+    const timeParts = this.fulfillmentTime.split(':');
 
-    this.model.fulfillmentDate = fulfillmentDate
+    // Set fulfillment date and time manually, modified to use separate time field by Jacob Sampson
+    // https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
+    const dateParts = this.fulfillmentDate.toString().split('-');
+    const fulfillmentTotalDate = new Date(
+      Number.parseInt(dateParts[0]),
+      Number.parseInt(dateParts[1]) - 1,
+      Number.parseInt(dateParts[2])
+    );
+    fulfillmentTotalDate.setUTCMilliseconds(fulfillmentTotalDate.getUTCMilliseconds() +
+      Number.parseInt(timeParts[0]) * 60 * 60 * 1000 +
+      Number.parseInt(timeParts[1]) * 60 * 1000);
+
+    this.model.fulfillmentDate = fulfillmentTotalDate;
 
     this.fb.addIsoRequest(this.model);
     this.model = this.reset();
