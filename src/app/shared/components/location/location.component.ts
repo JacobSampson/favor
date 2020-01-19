@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GoogleMapsService } from 'src/app/core/google-maps/google-maps.service';
 
 @Component({
   selector: 'app-location',
@@ -10,7 +11,15 @@ export class LocationComponent implements OnInit {
   @Input() fromLocation?: string;
   @Input() toLocation?: string;
 
-  constructor() { }
+  get toLocationLink() {
+    return this.googleMapsService.getDirectionsToUrl(this.toLocation);
+  }
+
+  get wholeLocationLink() {
+    return this.googleMapsService.getDirectionsFromToUrl(this.fromLocation, this.toLocation);
+  }
+
+  constructor(private googleMapsService: GoogleMapsService) { }
 
   ngOnInit() {
   }
