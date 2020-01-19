@@ -10,7 +10,6 @@ export class OpportunityCardComponent implements OnInit {
 
   @Input() card: Opportunity;
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
