@@ -1,0 +1,73 @@
+@import '~src/assets/scss/base/variables';
+
+.form {
+  padding: 2em 0;
+  display: flex;
+  // width: 100vw;
+  flex-direction: column;
+  align-items: center;
+
+  // background-color: $col-frgd;
+  // color: $col-text-secondary;
+
+  &__group {
+    justify-self: center;
+    align-items: center;
+    text-align: start;
+  }
+
+  &__control {
+    padding: 1em;
+    margin: 0.5em;
+    min-width: 20em;
+
+    border: none;
+    border-left: 5px solid white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0.25em;
+
+    &.ng-valid[required], &.ng-valid.required {
+      border-left: 5px solid $col-valid;
+    }
+
+    &.ng-invalid:not(form)  {
+      border-left: 5px solid $col-warning;
+    }
+
+    &--description {
+      height: 10em;
+
+      resize: vertical;
+      text-align: initial;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin: 0.25em 0;
+  }
+
+  &__button {
+    grid-area: submit;
+    margin-top: 3em;
+
+    cursor: pointer;
+    color: $col-text-secondary;
+    background: none;
+    background-color: $col-secondary;
+    border: none;
+    border-radius: 0.25em;
+
+    transition: 0.15s ease-in-out;
+
+    &:hover {
+      background-color: darkred;
+    }
+
+    &:disabled {
+      background-color: darkgray;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

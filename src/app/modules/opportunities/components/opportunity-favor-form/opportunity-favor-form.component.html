@@ -1,0 +1,34 @@
+<form action="" (ngSubmit)="onSubmit()" class="form" #form="ngForm">
+
+    <div class="form__group">
+        <label class="form__label" for="description">Description</label>
+        <textarea class="form__control form__control--description"
+        name="description"
+        #description="ngModel"
+        [(ngModel)]="model.description"
+        required
+        placeholder=""
+        type="text">
+        </textarea>
+    </div>
+
+    <div class="form__group">
+        <label class="form__label" for="paymentAmount">Payment</label>
+        <input class="form__control"
+        name="paymentAmount"
+        #paymentAmount="ngModel"
+        [(ngModel)]="model.paymentAmount"
+        placeholder="$"
+        required
+        placeholder=""
+        type="number">
+    </div>
+
+    <button mat-button class="form__button"
+        [disabled]="!form.form.valid"
+        type="submit">
+        Submit
+    </button>
+  
+</form>
+  

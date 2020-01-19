@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Opportunity from 'src/app/core/models/opportunity';
+import { FirebaseService } from 'src/app/core/firebase/firebase.service';
 
 @Component({
   selector: 'app-opportunity-card',
@@ -9,6 +10,8 @@ import Opportunity from 'src/app/core/models/opportunity';
 export class OpportunityCardComponent implements OnInit {
 
   @Input() card: Opportunity;
+
+  constructor(public fb: FirebaseService) { }
 
   ngOnInit() { }
 

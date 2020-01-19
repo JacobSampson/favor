@@ -1,3 +1,5 @@
+@import '~src/assets/scss/base/variables';
+
 .opportunity-card {
     max-width: 600px;
     margin: 2em 0;
@@ -8,5 +10,28 @@
 
     &__image {
       background-size: cover;
+    }
+
+    &__button {
+      background-color: $col-frgd;
+      color: $col-text-secondary;
+  
+      transition: 0.15s ease-in-out;
+  
+      &:hover {
+        background-color: darkgray;
+      }
+    }
+  
+    &__footer {
+      margin: 0 0.5em;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    &__expansion {
+      width: 100%;
     }
 }

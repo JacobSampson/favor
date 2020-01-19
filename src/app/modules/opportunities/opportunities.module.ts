@@ -7,9 +7,10 @@ import { OpportunityCardComponent } from './components/opportunity-card/opportun
 import { MaterialModule } from 'src/app/material.module';
 import { OpportunityFormComponent } from './components/opportunity-form/opportunity-form.component';
 import { FormsModule } from '@angular/forms';
+import { OpportunityFavorFormComponent } from './components/opportunity-favor-form/opportunity-favor-form.component';
 
 @NgModule({
-  declarations: [OpportunitiesComponent, OpportunityCardComponent, OpportunityFormComponent],
+  declarations: [OpportunitiesComponent, OpportunityCardComponent, OpportunityFormComponent, OpportunityFavorFormComponent],
   imports: [
     CommonModule,
     SharedModule,

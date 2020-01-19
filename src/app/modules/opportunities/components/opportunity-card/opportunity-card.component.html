@@ -13,4 +13,16 @@
     <mat-card-content class="opportunity-card__locations">
         <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
     </mat-card-content>
+    <mat-card-footer class="opportunity-card__footer">
+        <mat-accordion *ngIf="fb.user.uid !== card.userPosted.uid" class="opportunity-card__expansion">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Request Favor
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <app-opportunity-favor-form></app-opportunity-favor-form>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-footer>
 </mat-card>
