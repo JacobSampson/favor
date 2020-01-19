@@ -291,6 +291,7 @@ export class FirebaseService {
 
   // Request Favor
   public requestFavor(opportunity: Opportunity, favor: IsoRequest) {
+    opportunity.requests = opportunity.requests || [];
     opportunity.requests.push(favor);
 
     window.location.reload(false);

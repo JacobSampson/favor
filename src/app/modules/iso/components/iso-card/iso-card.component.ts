@@ -13,5 +13,6 @@ export class IsoCardComponent implements OnInit {
 
   constructor(public fb: FirebaseService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 }
