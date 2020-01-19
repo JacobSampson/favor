@@ -16,6 +16,14 @@ export class IsoFormComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit() {
+    // Set fulfillment date and time manually
+    // https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript
+    var parts = this.model.fulfillmentDate.toString().split('-');
+    var fulfillmentDate = new Date(Number.parseInt(parts[0]), 
+        Number.parseInt(parts[1]) - 1, Number.parseInt(parts[2])); 
+
+    this.model.fulfillmentDate = fulfillmentDate
+
     this.fb.addIsoRequest(this.model);
     this.model = this.reset();
   }

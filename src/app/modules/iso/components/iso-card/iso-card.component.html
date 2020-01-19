@@ -4,16 +4,14 @@
       [ngStyle]="{backgroundImage: 'url(' + card.userPosted?.photoUrl + ')'}">
     </div>
     <mat-card-title>{{card.title}}</mat-card-title>
-    <mat-card-subtitle> Posted on: {{card.postedDate.toLocaleDateString()}} </mat-card-subtitle>
+    <mat-card-subtitle> Posted on: {{card.postedDate.toLocaleDateString()}} - {{card.postedDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}}</mat-card-subtitle>
+    <mat-card-subtitle> Fulfilled by: {{card.fulfillmentDate.toLocaleDateString()}} - {{card.fulfillmentDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}} </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="iso-card__description">
     <p>{{card.description}}</p>
   </mat-card-content>
   <mat-card-content class="iso-card__locations">
     <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
-  </mat-card-content>
-  <mat-card-content>
-    <p>{{card.fulfillmentDate}}</p>
   </mat-card-content>
   <mat-card-footer class="iso-card__footer">
       <button mat-button class="iso-card__button">Fulfill</button>
