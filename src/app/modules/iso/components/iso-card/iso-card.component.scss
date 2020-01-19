@@ -17,6 +17,12 @@
   &__button {
     background-color: $col-frgd;
     color: $col-text-secondary;
+
+    transition: 0.15s ease-in-out;
+
+    &:hover {
+      background-color: darkgray;
+    }
   }
 
   &__description {
@@ -24,10 +30,14 @@
   }
 
   &__footer {
-    margin: 0 1em;
+    margin: 0 0.5em;
     display: flex;
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
+  }
+
+  &__payment {
+    font-size: 1.2em;
   }
 }
