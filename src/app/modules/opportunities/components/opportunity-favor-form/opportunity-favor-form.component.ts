@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import OpportunityFavorRequest from 'src/app/core/models/opportunity-favor-request';
+import { Component, OnInit, Input } from '@angular/core';
+import { FirebaseService } from 'src/app/core/firebase/firebase.service';
+import Opportunity from 'src/app/core/models/opportunity';
+import IsoRequest from 'src/app/core/models/iso-request';
 
 @Component({
   selector: 'app-opportunity-favor-form',
@@ -8,22 +10,33 @@ import OpportunityFavorRequest from 'src/app/core/models/opportunity-favor-reque
 })
 export class OpportunityFavorFormComponent implements OnInit {
 
-  public model: OpportunityFavorRequest = this.reset();
+  @Input() opportunity: Opportunity;
 
-  constructor() { }
+  public model: IsoRequest = this.reset();
 
-  ngOnInit() {
-  }
+  constructor(private fb: FirebaseService) { }
+
+  ngOnInit() { }
 
   onSubmit() {
+    this.fb.requestFavor(this.opportunity, this.model);
     this.model = this.reset();
   }
 
-  reset(): OpportunityFavorRequest {
-    return new OpportunityFavorRequest(
+  reset(): IsoRequest {
+    return new IsoRequest(
       null, // description
-      null  // payment
-    )
+      null,  // payment
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    );
   }
 
 }

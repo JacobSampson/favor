@@ -11,7 +11,7 @@ export class IsoCardComponent implements OnInit {
 
   @Input() card: IsoRequest;
 
-  constructor(private fb: FirebaseService) { }
+  constructor(public fb: FirebaseService) { }
 
   ngOnInit() { }
 }

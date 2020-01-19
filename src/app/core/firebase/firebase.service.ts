@@ -144,7 +144,7 @@ export class FirebaseService {
           // Manually convert time stamps to date
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
-          
+
           if (!request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
           }
@@ -198,7 +198,7 @@ export class FirebaseService {
           // Manually convert time stamps to date
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
-          
+
           if (request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
           }
@@ -218,6 +218,8 @@ export class FirebaseService {
 
   // Update ISO request
   public updateIsoRequest(isoRequest: IsoRequest) {
+    window.location.reload(false);
+
     return this.afs.doc<IsoRequest>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${isoRequest.id}`).update({...isoRequest});
   }
 
@@ -231,6 +233,8 @@ export class FirebaseService {
     // Set date added and date updated
     isoRequest.postedDate = new Date();
     isoRequest.userPosted = this.user;
+
+    window.location.reload(false);
 
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('iso-requests').add({...isoRequest})
   }
@@ -280,7 +284,18 @@ export class FirebaseService {
     opportunity.postedDate = new Date();
     opportunity.userPosted = this.user;
 
+    window.location.reload(false);
+
     return this.afs.doc<School>('schools/OZX5hT7OyyHsSh00Z5M6').collection('opportunities').add({...opportunity})
+  }
+
+  // Request Favor
+  public requestFavor(opportunity: Opportunity, favor: IsoRequest) {
+    opportunity.requests.push(favor);
+
+    window.location.reload(false);
+
+    return this.afs.doc<Opportunity>(`schools/OZX5hT7OyyHsSh00Z5M6/iso-requests/${opportunity.id}`).update({...opportunity});
   }
 
   // School

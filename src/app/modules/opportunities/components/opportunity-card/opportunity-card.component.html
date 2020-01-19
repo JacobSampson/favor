@@ -14,7 +14,22 @@
   <mat-card-content class="opportunity-card__locations">
     <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
   </mat-card-content>
-  <mat-card-footer class="opportunity-card__footer">
+
+  <mat-card-footer class="opportunity-card__footer" *ngIf="fb.user.uid === card.userPosted.uid">
+    <mat-accordion class="opportunity-card__expansion">
+      <mat-expansion-panel (opened)="isOpen = true"
+                           (closed)="isOpen = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            View &nbsp; <b>favor</b> &nbsp; requests
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-favor-requests *ngFor="let request of card.requests" request="request"></app-favor-requests>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-footer>
+
+  <mat-card-footer class="opportunity-card__footer" *ngIf="fb.user.uid !== card.userPosted.uid">
     <mat-accordion class="opportunity-card__expansion">
       <mat-expansion-panel (opened)="isOpen = true"
                            (closed)="isOpen = false">

@@ -8,9 +8,16 @@ import { MaterialModule } from 'src/app/material.module';
 import { OpportunityFormComponent } from './components/opportunity-form/opportunity-form.component';
 import { FormsModule } from '@angular/forms';
 import { OpportunityFavorFormComponent } from './components/opportunity-favor-form/opportunity-favor-form.component';
+import { FavorRequestsComponent } from './components/favor-requests/favor-requests.component';
 
 @NgModule({
-  declarations: [OpportunitiesComponent, OpportunityCardComponent, OpportunityFormComponent, OpportunityFavorFormComponent],
+  declarations: [
+    OpportunitiesComponent,
+    OpportunityCardComponent,
+    OpportunityFormComponent,
+    OpportunityFavorFormComponent,
+    FavorRequestsComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
