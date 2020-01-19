@@ -1,4 +1,12 @@
 @import './assets/scss/style.scss';
+@import '~src/assets/scss/base/variables';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: $col-secondary;
+} 
+.mat-tab-label {
+    color: white;
+}
