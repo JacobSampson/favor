@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpportunityFavorFormComponent implements OnInit {
 
+  public model: any;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+
   }
 
 }

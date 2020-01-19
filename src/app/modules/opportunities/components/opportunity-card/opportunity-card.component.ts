@@ -11,6 +11,8 @@ export class OpportunityCardComponent implements OnInit {
 
   @Input() card: Opportunity;
 
+  public isOpen = false;
+
   constructor(public fb: FirebaseService) { }
 
   ngOnInit() { }
