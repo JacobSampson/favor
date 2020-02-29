@@ -9,7 +9,7 @@ Favor is a way to connect students in the **right place** at the **right time** 
 
 - **3rd place** at [CornHacks 2020](https://cornhacks-2020.devpost.com/), a hackathon focused on projects promoting sustainable practices
 - **Devpost**: https://devpost.com/software/favor-yn7uqo
-- **Technologies**: Angular, Firebase for authentication and a database, SCSS for styling, and the the Google Maps API
+- **Technologies**: Angular, Firebase, SCSS, and the Google Maps API
 
 | <a href="https://sampsonjacob.com" target="_blank">**Jacob Sampson**</a> | <a href="https://github.com/LukeAVanDrie" target="_blank">**Luke VanDrie**</a> | <a href="https://github.com/patlm" target="_blank">**Patrick Murphy**</a> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
