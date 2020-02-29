@@ -41,7 +41,7 @@ Users can post *Opportunities* where they are are able to fulfill requests
 Users can post *ISOs* (In Search Of) if looking for a service or producr
 - *e.g. Need something from the store, looking for old equitpment or book, needing a ride*
 
-![ISO Overview](src/assets/images/gifs/iso__overview.gif)
+![ISO Overview](src/assets/images/gifs/iso__creation.gif)
 
 ### Account
 
