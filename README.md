@@ -11,12 +11,16 @@ Favor is a way to connect students in the **right place** at the **right time** 
 - **Devpost**: https://devpost.com/software/favor-yn7uqo
 - **Technologies**: Angular, Firebase, SCSS, and the Google Maps API
 
+<br />
+
 | <a href="https://sampsonjacob.com" target="_blank">**Jacob Sampson**</a> | <a href="https://github.com/LukeAVanDrie" target="_blank">**Luke VanDrie**</a> | <a href="https://github.com/patlm" target="_blank">**Patrick Murphy**</a> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [![JacobSampson](https://avatars3.githubusercontent.com/u/42616056?s=420&v=4)](http://sampsonjacob.com) | [![LukeVanDrie](https://avatars2.githubusercontent.com/u/35312594?s=200&v=4)](http://github.com/lukevandrie) | [![patlm](https://avatars3.githubusercontent.com/u/42616066?s=200&v=4)](http://github.com/patlm) |
 | <a href="http://github.com/JacobSampson" target="_blank">`github.com/JacobSampson`</a> | <a href="http://github.com/LukeVanDrie" target="_blank">`github.com/LukeVanDrie`</a> | <a href="http://github.com/patlm" target="_blank">`github.com/patlm`</a> |
 
 ---
+
+<br />
 
 ## Features
 
