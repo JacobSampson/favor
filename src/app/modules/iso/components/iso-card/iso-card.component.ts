@@ -13,6 +13,18 @@ export class IsoCardComponent implements OnInit {
 
   constructor(public fb: FirebaseService) { }
 
+  get fbId(): string {
+    if (!this.fb.user) {
+      return;
+    }
+
+    return this.fb.user.uid;
+  }
+
+  get cardId(): string {
+    return this.card.userPosted.uid;
+  }
+
   ngOnInit() {
   }
 }

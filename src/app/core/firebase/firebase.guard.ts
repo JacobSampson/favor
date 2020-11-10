@@ -15,13 +15,12 @@ export class FirebaseGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.fb.user$.pipe(
         take(1),
-        map(user => !!user),
+        map(user => true || !!user), // Disabled for demo
         tap(loggedIn => {
-          if(!loggedIn) {
-            this.router.navigate(['/'])
-          }
+          // if (!loggedIn) {
+          //   this.router.navigate(['/']);
+          // }
         })
       );
   }
-  
 }

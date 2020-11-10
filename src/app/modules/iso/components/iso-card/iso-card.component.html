@@ -14,8 +14,8 @@
     <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
   </mat-card-content>
   <mat-card-footer class="iso-card__footer">
-      <button *ngIf="fb.user.uid !== card.userPosted.uid" mat-button class="iso-card__button" (click)="fb.fulfillIsoRequest(card)">Fulfill</button>
-      <div *ngIf="fb.user.uid === card.userPosted.uid"></div>
+      <button [ngClass]="{ 'iso-card__button--disabled': !fbId }" *ngIf="fbId !== cardId" mat-button class="iso-card__button" (click)="fb.fulfillIsoRequest(card)">Fulfill</button>
+      <div *ngIf="fbId === cardId"></div>
       <mat-card-subtitle class="iso-card__payment">${{card.paymentAmount}}</mat-card-subtitle>
   </mat-card-footer>
 </mat-card>

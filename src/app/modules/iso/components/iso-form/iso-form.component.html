@@ -84,7 +84,7 @@
   </div>
 
   <button mat-button class="form__button"
-    [disabled]="!form.form.valid"
+    [disabled]="!form.form.valid || !fb.user"
     type="submit">
     Submit
   </button>

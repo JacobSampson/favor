@@ -15,7 +15,7 @@
     <app-location fromLocation="{{card.fromLocation}}" toLocation="{{card.toLocation}}"></app-location>
   </mat-card-content>
 
-  <mat-card-footer class="opportunity-card__footer" *ngIf="fb.user.uid === card.userPosted.uid">
+  <mat-card-footer class="opportunity-card__footer" *ngIf="fbId === cardId">
     <mat-accordion class="opportunity-card__expansion">
       <mat-expansion-panel (opened)="isOpen = true"
                            (closed)="isOpen = false">
@@ -29,7 +29,7 @@
     </mat-accordion>
   </mat-card-footer>
 
-  <mat-card-footer class="opportunity-card__footer" *ngIf="fb.user.uid !== card.userPosted.uid">
+  <mat-card-footer class="opportunity-card__footer" *ngIf="fbId !== cardId">
     <mat-accordion class="opportunity-card__expansion">
       <mat-expansion-panel (opened)="isOpen = true"
                            (closed)="isOpen = false">

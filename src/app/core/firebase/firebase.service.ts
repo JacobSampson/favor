@@ -125,7 +125,7 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
-          if (!request.fullfilled && request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
+          if (!this.user || !request.fullfilled && request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
             requests.push(request);
           }
         });
@@ -148,10 +148,10 @@ export class FirebaseService {
           request.id = doc.id;
 
           // Manually convert time stamps to date
-          request.postedDate = doc.data().postedDate.toDate()
-          request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
+          request.postedDate = doc.data().postedDate.toDate();
+          request.fulfillmentDate = doc.data().fulfillmentDate.toDate();
 
-          if (!request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
+          if (!this.user || request.userPosted && !request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
           }
         });
@@ -177,7 +177,7 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
-          if (request.fullfilled && request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
+          if (!this.user || request.fullfilled && request.userFulfilling && request.userFulfilling.uid === this.user.uid) {
             requests.push(request);
           }
         });
@@ -203,7 +203,7 @@ export class FirebaseService {
           request.postedDate = doc.data().postedDate.toDate()
           request.fulfillmentDate = doc.data().fulfillmentDate.toDate()
 
-          if (request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
+          if (!this.user || request.fullfilled && request.userFulfilling && request.userPosted.uid === this.user.uid) {
             requests.push(request);
           }
         });

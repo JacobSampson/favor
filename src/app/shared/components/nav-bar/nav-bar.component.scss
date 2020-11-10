@@ -6,10 +6,12 @@
   left: 0;
   margin: 0;
   padding: 1em;
+  width: 100vw;;
 
   background-color: $col-bkgd;
   color: white;
   z-index: 10;
+  overflow: hidden;
 
   &__items {
     padding: 0;
@@ -54,6 +56,8 @@
 
   &__button {
     background-color: $col-frgd;
+    position: relative;
+    right: 2em;
   }
 
   &__icon {

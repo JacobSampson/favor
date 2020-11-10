@@ -1,40 +1,233 @@
 <div *ngIf="fb.user$ | async as user">
-    <mat-tab-group mat-stretch-tabs>
-        <mat-tab label="Waiting">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Waiting">
+      <section class="iso-opportunity">
+        <mat-list class="iso__list">
+          <app-iso-card
+            *ngFor="let card of theyAreFulfilling | async"
+            [card]="card"
+          ></app-iso-card>
+        </mat-list>
+      </section>
+    </mat-tab>
+    <mat-tab label="Fulfilled">
+      <section class="iso-opportunity">
+        <mat-list class="iso__list">
+          <app-iso-card
+            *ngFor="let card of theyHaveFulfilled | async"
+            [card]="card"
+          ></app-iso-card>
+        </mat-list>
+      </section>
+    </mat-tab>
+    <mat-tab label="Doing">
+      <section class="iso-opportunity">
+        <mat-list class="iso__list">
+          <app-iso-card
+            *ngFor="let card of iAmFulfilling | async"
+            [card]="card"
+          ></app-iso-card>
+        </mat-list>
+      </section>
+    </mat-tab>
+    <mat-tab label="Done">
+      <section class="iso-opportunity">
+        <mat-list class="iso__list">
+          <app-iso-card
+            *ngFor="let card of iHaveFulfilled | async"
+            [card]="card"
+          ></app-iso-card>
+        </mat-list>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</div>
 
-            <section class="iso-opportunity">
-                <mat-list class="iso__list">
-                  <app-iso-card *ngFor="let card of theyAreFulfilling | async" [card]="card"></app-iso-card>
-                </mat-list>
-            </section>
-
-        </mat-tab>
-        <mat-tab label="Fulfilled">
-
-            <section class="iso-opportunity">
-                <mat-list class="iso__list">
-                  <app-iso-card *ngFor="let card of theyHaveFulfilled | async" [card]="card"></app-iso-card>
-                </mat-list>
-            </section>
-
-        </mat-tab>
-        <mat-tab label="Doing">
-
-            <section class="iso-opportunity">
-                <mat-list class="iso__list">
-                <app-iso-card *ngFor="let card of iAmFulfilling | async" [card]="card"></app-iso-card>
-                </mat-list>
-            </section>
-
-        </mat-tab>
-        <mat-tab label="Done">
-
-            <section class="iso-opportunity">
-                <mat-list class="iso__list">
-                <app-iso-card *ngFor="let card of iHaveFulfilled | async" [card]="card"></app-iso-card>
-                </mat-list>
-            </section>
-
-        </mat-tab>
-    </mat-tab-group>
+<div *ngIf="!(fb.user$ | async) as user" class="landing__info">
+  <h1>
+    <a
+      id="user-content-favor-do-favorwebapp"
+      class="anchor"
+      aria-hidden="true"
+      href="#favor-do-favorwebapp"
+      ></a
+    ><strong>favor</strong>
+  </h1>
+  <p>
+    Favor is a way to connect students in the <strong>right place</strong> at
+    the <strong>right time</strong> to help their peers in need
+  </p>
+  <ul class="landing__list">
+    <li>
+      <strong>3rd place</strong> at
+      <a href="https://cornhacks-2020.devpost.com/" rel="nofollow"
+        >CornHacks 2020</a
+      >, a hackathon focused on projects promoting sustainable practices
+    </li>
+    <li>
+      <strong>Devpost</strong>:
+      <a href="https://devpost.com/software/favor-yn7uqo" rel="nofollow"
+        >https://devpost.com/software/favor-yn7uqo</a
+      >
+    </li>
+    <li>
+      <strong>Technologies</strong>: Angular, Firebase, SCSS, and the Google
+      Maps API
+    </li>
+  </ul>
+  <br />
+  <table class="landing__table">
+    <thead>
+      <tr>
+        <th align="center">
+          <a href="https://sampsonjacob.com" rel="nofollow"
+            ><strong>Jacob Sampson</strong></a
+          >
+        </th>
+        <th align="center">
+          <a href="https://github.com/LukeAVanDrie"
+            ><strong>Luke VanDrie</strong></a
+          >
+        </th>
+        <th align="center">
+          <a href="https://github.com/patlm"><strong>Patrick Murphy</strong></a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center">
+          <a href="http://sampsonjacob.com" rel="nofollow"
+            ><img
+              src="https://avatars3.githubusercontent.com/u/42616056?s=420&amp;v=4"
+              alt="JacobSampson"
+              style="max-width: 100%"
+          /></a>
+        </td>
+        <td align="center">
+          <a href="http://github.com/lukeavandrie"
+            ><img
+              src="https://avatars3.githubusercontent.com/u/42616066?s=200&amp;v=4"
+              alt="LukeVanDrie"
+              style="max-width: 100%"
+          /></a>
+        </td>
+        <td align="center">
+          <a href="http://github.com/patlm"
+            ><img
+              src="https://avatars2.githubusercontent.com/u/35312594?s=200&amp;v=4"
+              alt="patlm"
+              style="max-width: 100%"
+          /></a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="landing__cell">
+          <a href="http://github.com/JacobSampson"
+            ><code>github.com/JacobSampson</code></a
+          >
+        </td>
+        <td align="center" class="landing__cell">
+          <a href="http://github.com/LukeAVanDrie"
+            ><code>github.com/LukeAVanDrie</code></a
+          >
+        </td>
+        <td align="center" class="landing__cell">
+          <a href="http://github.com/patlm"><code>github.com/patlm</code></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <div class="landing__para">
+    <!-- <h2>
+      Features
+    </h2> -->
+    <br />
+    <br />
+    <h3>
+      Opportunities
+    </h3>
+    <p>
+      Users can post <em>Opportunities</em> where they are are able to fulfill
+      requests
+    </p>
+    <ul class="landing__list">
+      <li>
+        <em
+          >e.g. Visiting the store, donating old furniture, driving back to a home
+          state</em
+        >
+      </li>
+    </ul>
+    <h3>
+      ISO
+    </h3>
+    <p>
+      Users can post <em>ISOs</em> (In Search Of) if looking for a service or
+      producr
+    </p>
+    <ul class="landing__list">
+      <li>
+        <em
+          >e.g. Need something from the store, looking for old equiptment or book,
+          needing a ride</em
+        >
+      </li>
+    </ul>
+    <h3>
+      Account
+    </h3>
+    <p>
+      Users can view the <em>Opportunities</em> they created and the
+      <em>ISOs</em> they are fulfilling
+    </p>
+    <h2>
+      Inspiration
+    </h2>
+    <p>
+      We are all part of several large group chats, and it is not uncommon for a
+      student to ask for a favor. We wanted to consolidate this behavior into a
+      campus-wide system that is inclusive of all students who might not have the
+      same large social networks that other students may have. We also felt that
+      many of the errands that college students run result in redundancy relative
+      to time and transportation emissions. By allowing students to easily request
+      favors and communicate when they are going on these errands, we can
+      drastically cut down on the amount of unnecessary trips that students must
+      take. Finally, everyone likes an opportunity to get paid. Not only did we
+      want to give students back their time by consolidating trips, the students
+      making these trips can earn a little bit of extra cash by assisting their
+      peers in need.
+    </p>
+    <h2>
+      Impact
+    </h2>
+    <p>
+      Our web-app, favor, enables student to connect with each other and assist
+      each other with various tasks. There are two main aspects of our
+      application: the ISO page and the opportunity page. The ISO page allows
+      users to make post for tasks that they are seeking out help with in exchange
+      for money. Other users can then fulfill these requests. This then sends the
+      request to each user's landing page where they can monitor its progress.
+      Then there is the opportunity page which allows students who are already
+      intending on completing tasks to reach out to other students who could
+      benefit from their actions. A student posts the action they intend on
+      performing at a designated time, and other users can add comments onto their
+      post, indicating that they are interested in a favor. By enabling students
+      to help each other accomplish even the smallest tasks through our
+      application, we are cutting down on emissions through redundant
+      transportation as well as building new social bonds.
+    </p>
+    <h2>
+      Technology
+    </h2>
+    <p>
+      We started building our project by propping up a firebase database with
+      built in Google Authentication as a placeholder for a user API. Then we
+      started structuring our page layout and building shared components that we
+      could then populate with firebase data retrieved through our service class.
+      The rest of the project time was spent polishing and implementing minor
+      details of the web-app.
+    </p>
+  </div>
 </div>

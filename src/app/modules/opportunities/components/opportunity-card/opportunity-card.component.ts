@@ -18,4 +18,16 @@ export class OpportunityCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  get fbId(): string {
+    if (!this.fb.user) {
+      return;
+    }
+
+    return this.fb.user.uid;
+  }
+
+  get cardId(): string {
+    return this.card.userPosted.uid;
+  }
+
 }

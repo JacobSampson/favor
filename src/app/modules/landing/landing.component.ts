@@ -7,7 +7,7 @@ import IsoRequest from 'src/app/core/models/iso-request';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
 
   public theyAreFulfilling: Promise<IsoRequest[]> = this.fb.getFulfillingIsoRequestsByPostingUser();
   public theyHaveFulfilled: Promise<IsoRequest[]> = this.fb.getFulfilledIsoRequestsByPostingUser();
@@ -15,9 +15,4 @@ export class LandingComponent implements OnInit {
   public iHaveFulfilled: Promise<IsoRequest[]> = this.fb.getFulfilledIsoRequestsByFulfillingUser();
 
   constructor(public fb: FirebaseService) { }
-
-  ngOnInit() {
-    
-  }
-
 }
